@@ -9,6 +9,7 @@ import (
 	"os"
 	"runtime"
 	"strings"
+	"sync"
 	"time"
 	"unicode/utf8"
 )
@@ -221,4 +222,75 @@ func PackageRuntime() {
 	}
 	//runtime.Goexit()
 
+}
+
+//6.14 sync包（同步）
+func PackageSync() {
+	fmt.Println("\n6.14.1 Mutex互斥锁 | 6.14.2 WaitGroup")
+	var c int
+	var mutex sync.Mutex
+	var wg sync.WaitGroup
+	primeNum := func(n int) {
+		defer wg.Done()
+		for i := 2; i < n; i++ {
+			if n%i == 0 {
+				return
+			}
+		}
+		mutex.Lock()
+		c++
+		mutex.Unlock()
+	}
+
+	for i := 2; i < 100001; i++ {
+		wg.Add(1)
+		go primeNum(i)
+	}
+	wg.Wait()
+	fmt.Printf("\n共找到%v个素数\n", c)
+
+	fmt.Println("\n6.14.3 Cond")
+	cond := sync.NewCond(&mutex)
+	for i := 0; i < 10; i++ {
+		go func(n int) {
+			cond.L.Lock()
+			cond.Wait()
+			fmt.Printf("协程%v被唤醒了\n", n)
+			cond.L.Unlock()
+		}(i)
+	}
+	for i := 0; i < 15; i++ {
+		time.Sleep(100 * time.Millisecond)
+		fmt.Print(".")
+		if i == 4 {
+			fmt.Println()
+			cond.Signal()
+		}
+		if i == 10 {
+			fmt.Println()
+			cond.Broadcast()
+		}
+	}
+	fmt.Println("\n6.14.4 Once")
+	var once sync.Once
+	for i := 0; i < 10; i++ {
+		wg.Add(1)
+		go func() {
+			once.Do(func() {
+				fmt.Println("只有一次机会")
+			})
+			wg.Done()
+		}()
+	}
+	wg.Wait()
+
+	fmt.Println("\n6.14.5 Map")
+	var m sync.Map
+	m.Store(1, 100)
+	m.Store(2, 300)
+	m.Store(2, 300)
+	m.Range(func(key, value interface{}) bool {
+		fmt.Printf("m[%v]=%v\n", key, value.(int))
+		return true
+	})
 }

@@ -20,7 +20,12 @@ func main() {
 	//6.11 命令行参数
 	//note.CmdArgs()
 	//6.12 builtin包
-	note.PackageBuiltin()
-	//6.12 runtime包
+	//note.PackageBuiltin()
+	//6.13 runtime包
 	//note.PackageRuntime()
+	//6.14 runtime包
+	//note.PackageSync()
+
+	//7.1 递归
+	note.Recursion()
 }
