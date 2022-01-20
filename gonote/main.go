@@ -27,5 +27,9 @@ func main() {
 	//note.PackageSync()
 
 	//7.1 递归
-	note.Recursion()
+	//note.Recursion()
+	//7.2 闭包
+	//note.Closure()
+	//7.3 排序
+	note.Sort()
 }
