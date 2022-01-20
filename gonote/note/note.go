@@ -222,5 +222,3 @@ func PackageRuntime() {
 	//runtime.Goexit()
 
 }
-
-//6.14
