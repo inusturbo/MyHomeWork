@@ -35,5 +35,17 @@ func main() {
 	//7.4 Sort包
 	//note.PackageSort()
 	//7.5 查找
-	note.BinarySearchTest()
+	//note.BinarySearchTest()
+
+	//8.1 工厂模式
+	// m := factory.NewMes()
+	// m.C = ""
+	// m.SetPwd("123")
+
+	//9.1 JSON常见操作
+	// note.PackageJson()
+
+	//10.1 tcp编程
+	//note.TcpServer()
+	note.TcpCli()
 }
