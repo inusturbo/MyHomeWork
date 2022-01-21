@@ -31,5 +31,9 @@ func main() {
 	//7.2 闭包
 	//note.Closure()
 	//7.3 排序
-	note.Sort()
+	//note.Sort()
+	//7.4 Sort包
+	//note.PackageSort()
+	//7.5 查找
+	note.BinarySearchTest()
 }
