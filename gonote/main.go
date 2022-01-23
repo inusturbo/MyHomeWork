@@ -47,5 +47,10 @@ func main() {
 
 	//10.1 tcp编程
 	//note.TcpServer()
-	note.TcpCli()
+	//note.TcpCli()
+
+	//11.1.1~3 LevelDB基本使用
+	//note.LeveldbBasic()
+	//11.1.4 LevelDB遍历
+	note.LeveldbIterate()
 }

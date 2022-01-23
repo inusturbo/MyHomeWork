@@ -1,0 +1,76 @@
+=============== Jan 23, 2022 (CST) ===============
+23:27:15.645466 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+23:27:15.686652 db@open opening
+23:27:15.691359 version@stat F·[] S·0B[] Sc·[]
+23:27:15.733254 db@janitor F·2 G·0
+23:27:15.733463 db@open done T·46.525405ms
+23:27:15.734357 db@close closing
+23:27:15.734890 db@close done T·475.83µs
+=============== Jan 23, 2022 (CST) ===============
+23:30:26.932169 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+23:30:26.932951 version@stat F·[] S·0B[] Sc·[]
+23:30:26.933003 db@open opening
+23:30:26.933152 journal@recovery F·1
+23:30:26.934464 journal@recovery recovering @1
+23:30:26.958502 memdb@flush created L0@2 N·1 S·134B "user-1,v1":"user-1,v1"
+23:30:26.960718 version@stat F·[1] S·134B[134B] Sc·[0.25]
+23:30:27.028321 db@janitor F·3 G·0
+23:30:27.028424 db@open done T·95.39429ms
+23:30:27.028727 db@close closing
+23:30:27.028987 db@close done T·256.165µs
+=============== Jan 23, 2022 (CST) ===============
+23:31:43.192700 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+23:31:43.193747 version@stat F·[1] S·134B[134B] Sc·[0.25]
+23:31:43.193818 db@open opening
+23:31:43.194169 journal@recovery F·1
+23:31:43.195161 journal@recovery recovering @3
+23:31:43.217578 memdb@flush created L0@5 N·5 S·182B "user-1,v7":"user-3,v6"
+23:31:43.218767 version@stat F·[2] S·316B[316B] Sc·[0.50]
+23:31:43.281032 db@janitor F·4 G·0
+23:31:43.281095 db@open done T·87.253537ms
+23:31:43.281359 db@close closing
+23:31:43.281610 db@close done T·234.157µs
+=============== Jan 23, 2022 (CST) ===============
+23:31:58.441647 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+23:31:58.442329 version@stat F·[2] S·316B[316B] Sc·[0.50]
+23:31:58.442369 db@open opening
+23:31:58.442499 journal@recovery F·1
+23:31:58.443478 journal@recovery recovering @6
+23:31:58.466585 memdb@flush created L0@8 N·5 S·182B "user-1,v13":"user-3,v12"
+23:31:58.468045 version@stat F·[3] S·498B[498B] Sc·[0.75]
+23:31:58.534413 db@janitor F·5 G·0
+23:31:58.534540 db@open done T·92.145076ms
+23:31:58.534902 db@close closing
+23:31:58.535365 db@close done T·443.653µs
+=============== Jan 23, 2022 (CST) ===============
+23:43:22.238072 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+23:43:22.238926 version@stat F·[3] S·498B[498B] Sc·[0.75]
+23:43:22.238974 db@open opening
+23:43:22.239118 journal@recovery F·1
+23:43:22.240400 journal@recovery recovering @9
+23:43:22.263464 memdb@flush created L0@11 N·5 S·182B "user-1,v19":"user-3,v18"
+23:43:22.265333 version@stat F·[4] S·680B[680B] Sc·[1.00]
+23:43:22.332027 db@janitor F·6 G·0
+23:43:22.332216 db@open done T·93.198234ms
+23:43:22.332601 table@compaction L0·4 -> L1·0 S·680B Q·20
+23:43:22.334311 db@close closing
+23:43:22.355427 table@build created L1@14 N·3 S·161B "user-1,v19":"user-3,v18"
+23:43:22.355571 table@build exiting
+23:43:22.355639 table@build revert @14
+23:43:22.356803 db@close done T·22.480796ms
+=============== Jan 23, 2022 (CST) ===============
+23:47:01.150015 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+23:47:01.150771 version@stat F·[4] S·680B[680B] Sc·[1.00]
+23:47:01.150811 db@open opening
+23:47:01.150929 journal@recovery F·1
+23:47:01.151738 journal@recovery recovering @12
+23:47:01.173810 memdb@flush created L0@14 N·10 S·239B "user-1,v21":"user-9,v29"
+23:47:01.174865 version@stat F·[5] S·919B[919B] Sc·[1.25]
+23:47:01.241278 db@janitor F·7 G·0
+23:47:01.241423 db@open done T·90.582076ms
+23:47:01.241761 table@compaction L0·5 -> L1·0 S·919B Q·31
+23:47:01.243416 db@close closing
+23:47:01.263003 table@build created L1@17 N·10 S·239B "user-1,v21":"user-9,v29"
+23:47:01.263107 table@build exiting
+23:47:01.263125 table@build revert @17
+23:47:01.263772 db@close done T·20.351819ms
