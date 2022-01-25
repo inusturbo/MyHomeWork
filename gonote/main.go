@@ -52,5 +52,7 @@ func main() {
 	//11.1.1~3 LevelDB基本使用
 	//note.LeveldbBasic()
 	//11.1.4 LevelDB遍历
-	note.LeveldbIterate()
+	//note.LeveldbIterate()
+	// 11.1.5-6 LevelDB事务与快照
+	note.LeveldbTransactionAndSnapshot()
 }

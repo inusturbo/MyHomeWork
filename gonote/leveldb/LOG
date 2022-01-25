@@ -74,3 +74,82 @@
 23:47:01.263107 table@build exiting
 23:47:01.263125 table@build revert @17
 23:47:01.263772 db@close done T·20.351819ms
+=============== Jan 25, 2022 (CST) ===============
+17:28:03.168353 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:28:03.170195 version@stat F·[5] S·919B[919B] Sc·[1.25]
+17:28:03.170222 db@open opening
+17:28:03.170338 journal@recovery F·1
+17:28:03.171313 journal@recovery recovering @15
+17:28:03.194037 memdb@flush created L0@17 N·10 S·239B "user-1,v32":"user-9,v40"
+17:28:03.194556 version@stat F·[6] S·1KiB[1KiB] Sc·[1.50]
+17:28:03.256052 db@janitor F·8 G·0
+17:28:03.256120 db@open done T·85.873809ms
+17:28:03.256788 table@compaction L0·6 -> L1·0 S·1KiB Q·42
+17:28:03.259297 db@close closing
+17:28:03.259977 db@close done T·674.338µs
+=============== Jan 25, 2022 (CST) ===============
+17:28:38.617141 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:28:38.617869 version@stat F·[6] S·1KiB[1KiB] Sc·[1.50]
+17:28:38.617906 db@open opening
+17:28:38.618192 journal@recovery F·1
+17:28:38.619540 journal@recovery recovering @18
+17:28:38.620646 version@stat F·[6] S·1KiB[1KiB] Sc·[1.50]
+17:28:38.688504 db@janitor F·8 G·0
+17:28:38.689624 db@open done T·71.684703ms
+17:28:38.690687 table@compaction L0·6 -> L1·0 S·1KiB Q·42
+17:28:38.698586 db@close closing
+17:28:38.712857 table@build created L1@22 N·10 S·239B "user-1,v32":"user-9,v40"
+17:28:38.712930 table@build exiting
+17:28:38.712946 table@build revert @22
+17:28:38.713427 db@close done T·14.83529ms
+=============== Jan 25, 2022 (CST) ===============
+17:29:48.568427 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:29:48.569800 version@stat F·[6] S·1KiB[1KiB] Sc·[1.50]
+17:29:48.569836 db@open opening
+17:29:48.570083 journal@recovery F·1
+17:29:48.572515 journal@recovery recovering @20
+17:29:48.573284 version@stat F·[6] S·1KiB[1KiB] Sc·[1.50]
+17:29:48.637706 db@janitor F·8 G·0
+17:29:48.637837 db@open done T·67.967529ms
+17:29:48.647444 db@close closing
+17:29:48.647466 table@compaction L0·6 -> L1·0 S·1KiB Q·42
+17:29:48.647624 table@build exiting
+17:29:48.647875 db@close done T·426.323µs
+=============== Jan 25, 2022 (CST) ===============
+17:29:56.951618 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:29:56.952047 version@stat F·[6] S·1KiB[1KiB] Sc·[1.50]
+17:29:56.952066 db@open opening
+17:29:56.952135 journal@recovery F·1
+17:29:56.952843 journal@recovery recovering @22
+17:29:56.953507 version@stat F·[6] S·1KiB[1KiB] Sc·[1.50]
+17:29:57.017203 db@janitor F·8 G·0
+17:29:57.017286 db@open done T·65.201531ms
+17:29:57.018099 table@compaction L0·6 -> L1·0 S·1KiB Q·42
+17:29:57.020925 db@close closing
+17:29:57.039567 table@build created L1@26 N·10 S·239B "user-1,v32":"user-9,v40"
+17:29:57.039605 table@build exiting
+17:29:57.039616 table@build revert @26
+17:29:57.039935 db@close done T·19.008518ms
+=============== Jan 25, 2022 (CST) ===============
+17:30:27.940496 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:30:27.941258 version@stat F·[6] S·1KiB[1KiB] Sc·[1.50]
+17:30:27.941296 db@open opening
+17:30:27.941420 journal@recovery F·1
+17:30:27.942354 journal@recovery recovering @24
+17:30:27.943664 version@stat F·[6] S·1KiB[1KiB] Sc·[1.50]
+17:30:28.009614 db@janitor F·8 G·0
+17:30:28.010254 db@open done T·68.92846ms
+17:30:28.011238 table@compaction L0·6 -> L1·0 S·1KiB Q·42
+17:30:28.032402 table@build created L1@28 N·10 S·239B "user-1,v32":"user-9,v40"
+17:30:28.032572 version@stat F·[0 1] S·239B[0B 239B] Sc·[0.00 0.00]
+17:30:28.053333 table@compaction committed F-5 S-919B Ke·0 D·26 T·41.984933ms
+17:30:28.053832 table@remove removed @17
+17:30:28.054155 table@remove removed @14
+17:30:28.053371 transaction@flush created L0@29 N·10 S·241B "cat-1,v43":"cat-9,v51"
+17:30:28.054946 table@remove removed @11
+17:30:28.056086 table@remove removed @8
+17:30:28.056296 table@remove removed @5
+17:30:28.056878 table@remove removed @2
+17:30:28.056988 version@stat F·[1 1] S·480B[241B 239B] Sc·[0.25 0.00]
+17:30:28.077203 db@close closing
+17:30:28.077353 db@close done T·146.124µs
