@@ -4,6 +4,8 @@
 
 这个文件夹用来存放每天做的Leetcode学到的内容。也许会把这个内容同步到博客上。
 
+[toc]
+
 ## 2022年1月
 
 ### 20220124 [448. Find All Numbers Disappeared in an Array](https://leetcode-cn.com/problems/find-all-numbers-disappeared-in-an-array/)
@@ -35,6 +37,7 @@ public:
 进阶题目要求原地hash，可以直接对原数组进行标记，把重复出现的数字标为负数。最后遍历，仍是正数的就是没有出现过的数字。
 
 ### 20220125 [48. Rotate Image](https://leetcode-cn.com/problems/rotate-image/)
+
 ```c++
 class Solution {
 public:
@@ -62,3 +65,33 @@ public:
 
 
 ![image-20220125073646549](README.assets/image-20220125073646549.png)
+
+### 20220126 [240. Search a 2D Matrix II](https://leetcode-cn.com/problems/search-a-2d-matrix-ii/)
+
+```c++
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        int m = matrix.size();
+        if (m == 0) {
+            return false;
+        }
+        int n = matrix[0].size();
+        int i = 0, j = n - 1;
+        while (i < m && j >= 0) {
+            if (matrix[i][j] == target) {
+                return true;
+            } else if (matrix[i][j] > target) {
+                --j;
+            } else {
+                ++i;
+            }
+        }
+        return false;
+    }
+};
+```
+
+![image-20220126075519571](README.assets/image-20220126075519571.png)
+
+今天这道题比较简单，因为每行每列都是增序的，因此只要判断，若当前值小于target那么就向下移动一位，如果大于则向左移动一位。如果直到右下角都没有，那么就不存在。
