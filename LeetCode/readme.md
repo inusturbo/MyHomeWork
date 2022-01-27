@@ -95,3 +95,27 @@ public:
 ![image-20220126075519571](README.assets/image-20220126075519571.png)
 
 今天这道题比较简单，因为每行每列都是增序的，因此只要判断，若当前值小于target那么就向下移动一位，如果大于则向左移动一位。如果直到右下角都没有，那么就不存在。
+
+
+
+### 20220127 [769. Max Chunks To Make Sorted](https://leetcode-cn.com/problems/max-chunks-to-make-sorted/) 
+
+```c++
+class Solution {
+public:
+    int maxChunksToSorted(vector<int>& arr) {
+        int chunks = 0, cur_max = 0;
+        for (int i = 0; i < arr.size(); ++i) {
+            cur_max = max (cur_max, arr[i]);
+            if (cur_max == i) {
+                ++chunks;
+            }
+        }
+        return chunks;
+    }
+};
+```
+
+![image-20220127081813456](README.assets/image-20220127081813456.png)
+
+一开始没读懂题目要干什么,原来是要拆分出一些逆序数字。如果当前最大值大于数组的标号，则说明右边一定有小于数组位置的数字。
