@@ -119,3 +119,57 @@ public:
 ![image-20220127081813456](README.assets/image-20220127081813456.png)
 
 一开始没读懂题目要干什么,原来是要拆分出一些逆序数字。如果当前最大值大于数组的标号，则说明右边一定有小于数组位置的数字。
+
+### 20220126 [232. Implement Queue using Stacks](https://leetcode-cn.com/problems/implement-queue-using-stacks/)
+
+```c++
+class MyQueue {
+    stack<int> in, out;
+public:
+    MyQueue() {}
+    void inToOut() {
+        if (out.empty()) {
+            while (!in.empty()) {
+                int x = in.top();
+                in.pop();
+                out.push(x);
+            }
+        }
+    }
+    
+    void push(int x) {
+        in.push(x);
+    }
+    
+    int pop() {
+        inToOut();
+        int x = out.top();
+        out.pop();
+        return x;
+    }
+    
+    int peek() {
+        inToOut();
+        return out.top();
+    }
+    
+    bool empty() {
+        return in.empty() && out.empty();
+    }
+};
+
+/**
+ * Your MyQueue object will be instantiated and called as such:
+ * MyQueue* obj = new MyQueue();
+ * obj->push(x);
+ * int param_2 = obj->pop();
+ * int param_3 = obj->peek();
+ * bool param_4 = obj->empty();
+ */
+```
+
+![image-20220128084747815](README.assets/image-20220128084747815.png)
+
+尝试用栈实现一个队列（怎么会有这么怪的需求）
+
+用了两个栈，一个表示输入一个表示输出，用一个inToOut函数把栈内的数据反转存放在out。
