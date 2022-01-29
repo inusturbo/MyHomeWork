@@ -18,3 +18,6 @@ The *[LeetCode Note](./LeetCode)* folder is a record of my daily LeetCode questi
 
 The *[Master-Exam](./Master-Exam)* folder is for my master's questions or notes and insights from the master exams I took.
 
+## Wake-Up Time
+
+According to this [blog](https://penghh.fun/2021/12/26/2021-12-26-githubshortcut/), it is set to automatically collect my wake-up time. You can check it in issue.
