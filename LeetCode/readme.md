@@ -120,7 +120,7 @@ public:
 
 一开始没读懂题目要干什么,原来是要拆分出一些逆序数字。如果当前最大值大于数组的标号，则说明右边一定有小于数组位置的数字。
 
-### 20220126 [232. Implement Queue using Stacks](https://leetcode-cn.com/problems/implement-queue-using-stacks/)
+### 20220128 [232. Implement Queue using Stacks](https://leetcode-cn.com/problems/implement-queue-using-stacks/)
 
 ```c++
 class MyQueue {
@@ -174,5 +174,50 @@ public:
 
 用了两个栈，一个表示输入一个表示输出，用一个inToOut函数把栈内的数据反转存放在out。
 
+### 20220131 [155. Min Stack](https://leetcode-cn.com/problems/min-stack/)
 
+```c++
+class MinStack {
+    stack<int> s, min_s;
+public:
+    MinStack() {}
+    
+    void push(int val) {
+        s.push(val);
+        if (min_s.empty() || min_s.top() >= val) {
+            min_s.push(val);
+        }
+    }
+    
+    void pop() {
+        if (!min_s.empty() && min_s.top() == s.top()) {
+            min_s.pop();
+        }
+        s.pop();
+    }
+    
+    int top() {
+        return s.top();
+    }
+    
+    int getMin() {
+        return min_s.top();
+    }
+};
+
+/**
+ * Your MinStack object will be instantiated and called as such:
+ * MinStack* obj = new MinStack();
+ * obj->push(val);
+ * obj->pop();
+ * int param_3 = obj->top();
+ * int param_4 = obj->getMin();
+ */
+```
+
+![image-20220131094257627](README.assets/image-20220131094257627.png)
+
+相当于额外建立了一个栈`min_s`，`min_s`的栈顶是原来栈里所有值里的最小值。
+
+## 2022年2月
 
