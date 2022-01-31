@@ -4,7 +4,9 @@ Click [here](https://inusturbo.github.io) to visit my homepage.
 
 ## GO language
 The *[gonote](./gonote)* folder is my notes for learning the GO language.
-Resources for learning the go language(Chinese): [FangChannel](https://www.bilibili.com/video/BV1s341147US).
+Resources for learning the go language(Chinese): [FangChannel](https://www.bilibili.com/video/BV1s341147US).  
+
+Github [@一坨小方块](https://github.com/fangdevelop)
 
 ## DeepLearning
 The *[DeepLearning](./DL-LearningWithLiMu)* folder is my notes for learning the DeepLearning.

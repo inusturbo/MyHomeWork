@@ -3,4 +3,6 @@
 ## 简介
 
 这个文件夹存放学习go语言的笔记。  
-Resources for learning the go language(Chinese): [FangChannel](https://www.bilibili.com/video/BV1s341147US).
+Resources for learning the go language(Chinese): [FangChannel](https://www.bilibili.com/video/BV1s341147US).  
+
+Github [@一坨小方块](https://github.com/fangdevelop)
