@@ -221,3 +221,35 @@ public:
 
 ## 2022年2月
 
+### 20220201 [20. Valid Parentheses](https://leetcode-cn.com/problems/valid-parentheses/)
+
+```c++
+class Solution {
+public:
+    bool isValid(string s) {
+        stack<char> parsed;
+        for (int i = 0; i < s.length(); ++i) {
+            if (s[i] == '{' || s[i] == '[' || s[i] == '(') {
+                parsed.push(s[i]);
+            } else {
+                if (parsed.empty()) {
+                    return false;
+                }
+                char c = parsed.top();
+                if ((s[i] == '}' && c == '{') ||
+                    (s[i] == ']' && c == '[') ||
+                    (s[i] == ')' && c == '(')) {
+                        parsed.pop();
+                    } else {
+                        return false;
+                    }
+            }
+        }
+        return parsed.empty();
+    }
+};
+```
+
+![image-20220201172102990](README.assets/image-20220201172102990.png)
+
+一道典型的应用栈的题目，遇到左括号时候入栈，遇到右括号时候出栈。这个可能也就是形式语言与自动机的CFL/PDA吧。
