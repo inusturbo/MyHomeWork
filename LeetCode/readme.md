@@ -253,3 +253,32 @@ public:
 ![image-20220201172102990](README.assets/image-20220201172102990.png)
 
 一道典型的应用栈的题目，遇到左括号时候入栈，遇到右括号时候出栈。这个可能也就是形式语言与自动机的CFL/PDA吧。
+
+### 20220202 [739. Daily Temperatures](https://leetcode-cn.com/problems/daily-temperatures/)
+
+```c++
+class Solution {
+public:
+    vector<int> dailyTemperatures(vector<int>& temperatures) {
+        int n = temperatures.size();
+        vector<int> ans(n);
+        stack<int> indices;
+        for (int i = 0; i < n; ++i) {
+            while (!indices.empty()) {
+                int pre_index = indices.top();
+                if (temperatures[i] <= temperatures[pre_index]) {
+                    break;
+                }
+                indices.pop();
+                ans[pre_index] = i - pre_index;
+            }
+            indices.push(i);
+        }
+        return ans;
+    }
+};
+```
+
+![image-20220202090214022](README.assets/image-20220202090214022.png)
+
+这道题用单调栈解决。用单调递减的栈表示每天的温度。
