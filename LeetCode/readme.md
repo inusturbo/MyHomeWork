@@ -369,3 +369,32 @@ public:
 ![image-20220204081728808](README.assets/image-20220204081728808.png)
 
 自己按照优先队列扫描，存储每个建筑物的高度和右端，最后只过了35/40个测试用例。怎么调试都找不出问题，最后抄了官方题解。
+
+### 20220207 [239. Sliding Window Maximum](https://leetcode-cn.com/problems/sliding-window-maximum/)
+
+```c++
+class Solution {
+public:
+    vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+        deque<int> dq;
+        vector<int> ans;
+        for (int i = 0; i < nums.size(); ++i) {
+            if (!dq.empty() && dq.front() == i - k) {
+                dq.pop_front();
+            }
+            while (!dq.empty() && nums[dq.back()] < nums[i]) {
+                dq.pop_back();
+            }
+            dq.push_back(i);
+            if (i >= k - 1) {
+                ans.push_back(nums[dq.front()]);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+![image-20220207070455924](README.assets/image-20220207070455924.png)
+
+使用单调队列即可。push时要把前面比自己小的元素都删掉，直到遇到更大的元素才停止删除。难点在于如何写这样一个单调队列。
