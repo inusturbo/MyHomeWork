@@ -4,7 +4,7 @@
 
 ## 第一章 计算机系统概述
 
-### 1.1 操作系统的基本概念20220125
+### 1.1 操作系统的基本概念
 
 #### 错题
 
@@ -22,7 +22,7 @@
    - Library functions are part of a language or application and can run in user space. System calls, on the other hand, are part of the operating system and run in kernel space, and many library functions will use system calls to implement functionality.
    - Library functions that do not use system calls will often be more efficient than those that do. This is because system calls require context switching and state transitions (user state to kernel state).
 
-### 1.2 操作系统的发展与分类20220125
+### 1.2 操作系统的发展与分类
 
 #### 错题
 
@@ -33,7 +33,7 @@
    - 分时操作系统可让多个用户同时使用计算机，人机交互性较强，具有每个用户独立使用计算机的独占性，系统响应及时。
    - 实时操作系统能对控制对象作出及时反应，可靠性高，响应及时，但资源利用率低。
 
-### 1.3 操作系统的运行环境 20220126
+### 1.3 操作系统的运行环境
 
 #### Points
 
@@ -55,7 +55,7 @@
 2. 在操作系统中，只能在核心态下执行的指令是广义指令（系统调用命令）。
 2. 子程序调用只需保存程序断点，即该指令的下一条指令的地址；终端处理不仅要保存断点（PC的内容），还要保存程序状态字寄存器（PSWR）的内容。在中断处理中最重要的两个寄存器就是PC和PSWR。
 
-### 1.4 操作系统的体系结构 20220126
+### 1.4 操作系统的体系结构
 
 #### 错题
 
@@ -95,6 +95,9 @@
 ### 2.3 进程同步
 
 #### 错题
+
+1. 不需要信号量就能实现的功能是：进程的并发执行。信号量机制是用来实现进程的同步和互斥的。
+2. 所谓临界区就是指访问临界资源的那段代码程序，如P/V操作、加减锁。操作系统访问临界资源时关心的是临界区的操作过程，具体是对临界资源做什么操作，操作系统并不关心。
 
 ### 2.4 死锁
 
