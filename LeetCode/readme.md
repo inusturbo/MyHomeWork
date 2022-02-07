@@ -398,3 +398,32 @@ public:
 ![image-20220207070455924](README.assets/image-20220207070455924.png)
 
 使用单调队列即可。push时要把前面比自己小的元素都删掉，直到遇到更大的元素才停止删除。难点在于如何写这样一个单调队列。
+
+### 20220208 [1. Two Sum](https://leetcode-cn.com/problems/two-sum/)
+
+```c++
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int, int> hash;
+        vector<int> ans;
+        for (int i = 0; i < nums.size(); ++i) {
+            int num = nums[i];
+            auto pos = hash.find(target - num);
+            if (pos == hash.end()) {
+                hash[num] = i;
+            } else {
+                ans.push_back(pos->second);
+                ans.push_back(i);
+                break;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+![image-20220208074217827](README.assets/image-20220208074217827.png)
+
+通过哈希表存储遍历过的值，每次遍历到`i`的时候，查看hashtable里有没有`target-nums[i]`
+
