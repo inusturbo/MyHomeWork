@@ -427,3 +427,34 @@ public:
 
 通过哈希表存储遍历过的值，每次遍历到`i`的时候，查看hashtable里有没有`target-nums[i]`
 
+### 20220209 [128. Longest Consecutive Sequence](https://leetcode-cn.com/problems/longest-consecutive-sequence/)
+
+```c++
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+        unordered_set<int> hash;
+        for (const int & num: nums) {
+            hash.insert(num);
+        }
+        int ans = 0;
+        while (!hash.empty()) {
+            int cur = *(hash.begin());
+            hash.erase(cur);
+            int next = cur + 1, prev = cur - 1;
+            while (hash.count(next)) {
+                hash.erase(next++);
+            }
+            while (hash.count(prev)) {
+                hash.erase(prev--);
+            }
+            ans = max(ans, next - prev -1);
+        }
+        return ans;
+    }
+}
+```
+
+![image-20220209073312206](README.assets/image-20220209073312206.png)
+
+今天的题目可以用hash表解决，在hash table不空的条件下，判断hash table的cur指针的前后项是否存在，若存在则计数。
