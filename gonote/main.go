@@ -54,5 +54,7 @@ func main() {
 	//11.1.4 LevelDB遍历
 	//note.LeveldbIterate()
 	// 11.1.5-6 LevelDB事务与快照
-	note.LeveldbTransactionAndSnapshot()
+	//note.LeveldbTransactionAndSnapshot()
+	// 11.2 Redis基本操作
+	note.RedisBasic()
 }

@@ -1,8 +1,10 @@
 package note
 
 import (
+	"context"
 	"fmt"
 
+	"github.com/go-redis/redis/v8"
 	"github.com/syndtr/goleveldb/leveldb"
 	leveldbUtil "github.com/syndtr/goleveldb/leveldb/util"
 )
@@ -102,5 +104,27 @@ func LeveldbTransactionAndSnapshot() {
 	fmt.Println("db Has \"cat-1\" ?", ok)
 	ok, _ = ss.Has([]byte("cat-1"), nil)
 	fmt.Println("ss Has \"cat-1\" ?", ok)
+
+}
+
+// 11.2 Redis的基本操作
+func RedisBasic() {
+	opt:=redis.Options{
+		Addr:     "localhost:6379",
+	}
+	db:=redis.NewClient(&opt)
+	ctx:=context.Background()
+	db.Do(ctx,"SET","k1","v1")
+	// res,err:=db.Do(ctx,"GET","k1").Result()
+	res,err:=db.Do(ctx,"GET","k2").Result()
+	if err!=nil{
+		if err==redis.Nil{
+			fmt.Println("该Key不存在")
+		}else{
+			fmt.Println(err)
+		}
+	} else {
+		fmt.Println("res=",res.(string))
+	}
 
 }
