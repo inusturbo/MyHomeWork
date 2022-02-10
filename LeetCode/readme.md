@@ -458,3 +458,56 @@ public:
 ![image-20220209073312206](README.assets/image-20220209073312206.png)
 
 今天的题目可以用hash表解决，在hash table不空的条件下，判断hash table的cur指针的前后项是否存在，若存在则计数。
+
+### 20220210 [149. Max Points on a Line](https://leetcode-cn.com/problems/max-points-on-a-line/)
+
+```c++
+//leetcode official solution
+class Solution {
+public:
+    int gcd(int a, int b) {
+        return b ? gcd(b, a % b) : a;
+    }
+
+    int maxPoints(vector<vector<int>>& points) {
+        int n = points.size();
+        if (n <= 2) {
+            return n;
+        }
+        int ret = 0;
+        for (int i = 0; i < n; i++) {
+            if (ret >= n - i || ret > n / 2) {
+                break;
+            }
+            unordered_map<int, int> mp;
+            for (int j = i + 1; j < n; j++) {
+                int x = points[i][0] - points[j][0];
+                int y = points[i][1] - points[j][1];
+                if (x == 0) {
+                    y = 1;
+                } else if (y == 0) {
+                    x = 1;
+                } else {
+                    if (y < 0) {
+                        x = -x;
+                        y = -y;
+                    }
+                    int gcdXY = gcd(abs(x), abs(y));
+                    x /= gcdXY, y /= gcdXY;
+                }
+                mp[y + x * 20001]++;
+            }
+            int maxn = 0;
+            for (auto& [_, num] : mp) {
+                maxn = max(maxn, num + 1);
+            }
+            ret = max(ret, maxn);
+        }
+        return ret;
+    }
+};
+```
+
+![image-20220210085357025](README.assets/image-20220210085357025.png)
+
+今天这道题和题解的思路一模一样，但是就是通不过，找了半天也没找到原因，粘贴了官方题解的代码顺利通过了。怪事情。
