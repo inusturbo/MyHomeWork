@@ -511,3 +511,43 @@ public:
 ![image-20220210085357025](README.assets/image-20220210085357025.png)
 
 今天这道题和题解的思路一模一样，但是就是通不过，找了半天也没找到原因，粘贴了官方题解的代码顺利通过了。怪事情。
+
+### 20220211 [332. Reconstruct Itinerary](https://leetcode-cn.com/problems/reconstruct-itinerary/)
+
+```c++
+class Solution {
+private:
+    unordered_map<string, map<string, int>> targets;
+    bool backtracking(int ticketNum, vector<string>& result) {
+        if (result.size() == ticketNum + 1) {
+            return true;
+        }
+        for (pair<const string, int>& target : targets[result[result.size() - 1]]) {
+            if (target.second > 0) {
+                result.push_back(target.first);
+                target.second--;
+                if (backtracking(ticketNum, result)) return true;
+                result.pop_back();
+                target.second++;
+            }
+        }
+        return false;
+    }
+
+public:
+    vector<string> findItinerary(vector<vector<string>>& tickets) {
+        targets.clear();
+        vector<string> result;
+        for (const vector<string>& vec : tickets) {
+            targets[vec[0]][vec[1]]++;
+        }
+        result.push_back("JFK");
+        backtracking(tickets.size(), result);
+        return result;
+    }
+};
+```
+
+![image-20220211080416055](README.assets/image-20220211080416055.png)
+
+深搜使用回溯的思想解决。难点在于如何处理死循环。
