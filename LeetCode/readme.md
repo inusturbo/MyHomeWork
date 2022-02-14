@@ -551,3 +551,29 @@ public:
 ![image-20220211080416055](README.assets/image-20220211080416055.png)
 
 深搜使用回溯的思想解决。难点在于如何处理死循环。
+
+### 20220214 [303. Range Sum Query - Immutable](https://leetcode-cn.com/problems/range-sum-query-immutable/)
+
+```c++
+class NumArray {
+    vector<int> psum;
+public:
+    NumArray(vector<int>& nums): psum(nums.size() + 1, 0){
+        partial_sum(nums.begin(), nums.end(), psum.begin() + 1);
+    }
+    
+    int sumRange(int left, int right) {
+        return psum[right+1] - psum[left];
+    }
+};
+
+/**
+ * Your NumArray object will be instantiated and called as such:
+ * NumArray* obj = new NumArray(nums);
+ * int param_1 = obj->sumRange(left,right);
+ */
+```
+
+![image-20220214091945500](README.assets/image-20220214091945500.png)
+
+建立数组`psum`存储`nums`每个位置之前所有数字的和。
