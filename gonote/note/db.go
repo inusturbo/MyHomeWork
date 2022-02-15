@@ -3,6 +3,7 @@ package note
 import (
 	"context"
 	"fmt"
+	"time"
 
 	"github.com/go-redis/redis/v8"
 	"github.com/syndtr/goleveldb/leveldb"
@@ -109,22 +110,38 @@ func LeveldbTransactionAndSnapshot() {
 
 // 11.2 Redis的基本操作
 func RedisBasic() {
-	opt:=redis.Options{
-		Addr:     "localhost:6379",
+	opt := redis.Options{
+		Addr: "localhost:6379",
 	}
-	db:=redis.NewClient(&opt)
-	ctx:=context.Background()
-	db.Do(ctx,"SET","k1","v1")
+	db := redis.NewClient(&opt)
+	ctx := context.Background()
+	db.Do(ctx, "SET", "k1", "v1")
 	// res,err:=db.Do(ctx,"GET","k1").Result()
-	res,err:=db.Do(ctx,"GET","k2").Result()
-	if err!=nil{
-		if err==redis.Nil{
+	res, err := db.Do(ctx, "GET", "k2").Result()
+	if err != nil {
+		if err == redis.Nil {
 			fmt.Println("该Key不存在")
-		}else{
+		} else {
 			fmt.Println(err)
 		}
 	} else {
-		fmt.Println("res=",res.(string))
+		fmt.Println("res=", res.(string))
+	}
+	db.Do(ctx, "set", "b1", true)
+	db.Do(ctx, "set", "b2", 0)
+	//b,err:=db.Do(ctx,"GET","b2").Bool()
+	b, err := db.Do(ctx, "mget", "b1", "b2").BoolSlice()
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println("b =", b)
+	}
+	db.Set(ctx, "t1", time.Now(), 0)
+	t, err := db.Get(ctx, "t1").Time()
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println("t =", t)
 	}
 
 }
