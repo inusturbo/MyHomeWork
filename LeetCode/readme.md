@@ -611,3 +611,27 @@ public:
 ![image-20220215083135174](README.assets/image-20220215083135174.png)
 
 这道题用到了积分图，也就是昨天那道题使用的前缀和的二维版本。可以维护一个二维 `preSum` 数组，专门记录以原点为顶点的矩阵的元素之和，就可以用几次加减运算算出任何一个子矩阵的元素和。
+
+### 20220216 [560. Subarray Sum Equals K](https://leetcode-cn.com/problems/subarray-sum-equals-k/)
+
+```c++
+class Solution {
+public:
+    int subarraySum(vector<int>& nums, int k) {
+        int count = 0, psum = 0;
+        unordered_map<int, int> hashmap;
+        hashmap[0] = 1;
+        for (int i: nums) {
+            psum += i;
+            count += hashmap[psum-k];
+            ++hashmap[psum];
+        }
+        return count;
+    }
+
+};
+```
+
+![image-20220216091530427](README.assets/image-20220216091530427.png)
+
+同样利用前缀和。使用hashmap，值为该前缀和出现的次数。
