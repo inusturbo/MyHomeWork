@@ -659,3 +659,32 @@ public:
 ![image-20220217074515487](README.assets/image-20220217074515487.png)
 
 终于遇到了一道简单的题目，但是需要一些耐心处理。
+
+### 20220218 [255. Verify Preorder Sequence in Binary Search Tree](https://leetcode-cn.com/problems/verify-preorder-sequence-in-binary-search-tree/)
+
+```c++
+class Solution {
+public:
+    bool verifyPreorder(vector<int>& preorder) {
+        stack<int> stk;
+        int lastv = INT_MIN;
+        for (int &i : preorder) {
+            while (!stk.empty() && stk.top() < i) {
+                lastv = stk.top();
+                stk.pop();
+            }
+            if (i < lastv) return false;
+            stk.emplace(i);
+        }
+        return true;
+    }
+};
+```
+
+
+
+![image-20220218073014877](README.assets/image-20220218073014877.png)
+
+使用单调栈解决，因为中序遍历时，第一次需要一直向左遍历，这时序列是单调递减的。
+
+如果检测到某次入栈元素小于上一次出栈元素，则说明不是二叉搜索树
