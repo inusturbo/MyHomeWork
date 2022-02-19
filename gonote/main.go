@@ -56,5 +56,7 @@ func main() {
 	// 11.1.5-6 LevelDB事务与快照
 	//note.LeveldbTransactionAndSnapshot()
 	// 11.2 Redis基本操作
-	note.RedisBasic()
+	// note.RedisBasic()
+	// 11.2.6 Redis管道
+	note.RedisPipeline()
 }

@@ -145,3 +145,35 @@ func RedisBasic() {
 	}
 
 }
+
+//11.2.6 Redis管道
+func RedisPipeline() {
+	db := redis.NewClient(&redis.Options{
+		Addr: "localhost:6379",
+	})
+	ctx := context.Background()
+	pipe := db.Pipeline()
+	t1 := pipe.Get(ctx, "t1")
+	fmt.Println("pipe执行前的t1=", t1)
+	for i := 0; i < 10; i++ {
+		pipe.Set(ctx, fmt.Sprintf("p%v", i), i, 0)
+	}
+	_, err := pipe.Exec(ctx)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println("pipe执行后的t1=", t1)
+
+	cmds, err := db.Pipelined(ctx, func(pipe redis.Pipeliner) error {
+		for i := 0; i < 10; i++ {
+			pipe.Get(ctx, fmt.Sprintf("p%v", i))
+		}
+		return nil
+	})
+	if err != nil {
+		panic(err)
+	}
+	for i, cmd := range cmds {
+		fmt.Printf("p%v=%v\n", i, cmd.(*redis.StringCmd).Val())
+	}
+}
