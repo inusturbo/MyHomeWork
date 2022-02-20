@@ -688,3 +688,28 @@ public:
 使用单调栈解决，因为中序遍历时，第一次需要一直向左遍历，这时序列是单调递减的。
 
 如果检测到某次入栈元素小于上一次出栈元素，则说明不是二叉搜索树
+
+### 202220221 [503. Next Greater Element II](https://leetcode-cn.com/problems/next-greater-element-ii/)
+
+```c++
+class Solution {
+public:
+    vector<int> nextGreaterElements(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> res(n);
+        stack<int> s;
+        for (int i = 2 * n - 1; i >= 0; i--) {
+        while (!s.empty() && s.top() <= nums[i % n]) {
+            s.pop();
+        }
+        res[i % n] = s.empty() ? -1 : s.top();
+        s.push(nums[i % n]);
+        }
+        return res;
+    }
+};
+```
+
+![image-20220221071234441](README.assets/image-20220221071234441.png)
+
+又是使用单调栈的一题，利用循环数组的技巧来模拟数组长度翻倍的效果。
