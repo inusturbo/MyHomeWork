@@ -58,5 +58,7 @@ func main() {
 	// 11.2 Redis基本操作
 	// note.RedisBasic()
 	// 11.2.6 Redis管道
-	note.RedisPipeline()
+	// note.RedisPipeline()
+	// 11.2.7 Redis事务
+	note.RedisTransaction()
 }

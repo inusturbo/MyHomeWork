@@ -177,3 +177,36 @@ func RedisPipeline() {
 		fmt.Printf("p%v=%v\n", i, cmd.(*redis.StringCmd).Val())
 	}
 }
+
+// 11.2.7 Redis事务
+func RedisTransaction() {
+	db := redis.NewClient(&redis.Options{
+		Addr: "localhost:6379",
+	})
+	ctx := context.Background()
+	for i := 0; i < 10; i++ {
+		err := db.Watch(ctx, func(tx *redis.Tx) (err error) {
+			pipe := tx.Pipeline()
+			pipe.IncrBy(ctx, "t1", 100).Err()
+			if err != nil {
+				return
+			}
+			err = pipe.DecrBy(ctx, "t1", 100).Err()
+			if err != nil {
+				return
+			}
+			_, err = pipe.Exec(ctx)
+			return
+		}, "p0")
+		if err != nil {
+			fmt.Println("事务commit成功")
+			break
+		} else if err == redis.TxFailedErr {
+			fmt.Println("事务失败, 这次是第", i, "次尝试")
+			continue
+		} else {
+			panic(err)
+		}
+	}
+
+}
