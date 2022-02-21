@@ -713,3 +713,25 @@ public:
 ![image-20220221071234441](README.assets/image-20220221071234441.png)
 
 又是使用单调栈的一题，利用循环数组的技巧来模拟数组长度翻倍的效果。
+
+### 20220222 [217. Contains Duplicate](https://leetcode-cn.com/problems/contains-duplicate/)
+
+```c++
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+         unordered_set<int> hash;
+         for (int x: nums) {
+             if (hash.find(x) != hash.end()) {
+                 return true;
+             }
+             hash.insert(x);
+         }
+         return false;
+    }
+};
+```
+
+![image-20220222074703387](README.assets/image-20220222074703387.png)
+
+这道题之前就做过一次，之前是使用排序法，这次使用了hashtable来存储，如果插入一个元素时发现该元素已经存在于哈希表中，则说明存在重复的元素。
