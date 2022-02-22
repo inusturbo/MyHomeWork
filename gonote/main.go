@@ -60,5 +60,7 @@ func main() {
 	// 11.2.6 Redis管道
 	// note.RedisPipeline()
 	// 11.2.7 Redis事务
-	note.RedisTransaction()
+	//note.RedisTransaction()
+	// 11.2.8 Redis遍历
+	note.RedisIterate()
 }

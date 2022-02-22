@@ -208,5 +208,31 @@ func RedisTransaction() {
 			panic(err)
 		}
 	}
+}
 
+// 11.2.8 Redis遍历
+func RedisIterate() {
+	db := redis.NewClient(&redis.Options{
+		Addr: "localhost:6379",
+	})
+	ctx := context.Background()
+	iter := db.Scan(ctx, 0, "p*", 0).Iterator()
+	for iter.Next(ctx) {
+		fmt.Printf("key=%v, value=%v\n", iter.Val(), db.Get(ctx, iter.Val()).Val())
+	}
+	if err := iter.Err(); err != nil {
+		panic(err)
+	}
+	db.HSet(ctx, "h1", "f1", "v1", "f2", "v2", "f3", "v3")
+	iter1 := db.HScan(ctx, "h1", 0, "*", 0).Iterator()
+	for i := 1; iter1.Next(ctx); i++ {
+		if i%2 == 0 {
+			fmt.Printf("field=%v\n", iter1.Val())
+		} else {
+			fmt.Printf("value=%v\n", iter1.Val())
+		}
+	}
+	if err := iter.Err(); err != nil {
+		panic(err)
+	}
 }
