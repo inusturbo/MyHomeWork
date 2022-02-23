@@ -735,3 +735,39 @@ public:
 ![image-20220222074703387](README.assets/image-20220222074703387.png)
 
 这道题之前就做过一次，之前是使用排序法，这次使用了hashtable来存储，如果插入一个元素时发现该元素已经存在于哈希表中，则说明存在重复的元素。
+
+### 20220223 [697. Degree of an Array](https://leetcode-cn.com/problems/degree-of-an-array/)
+
+```c++
+class Solution {
+public:
+    int findShortestSubArray(vector<int>& nums) {
+        unordered_map<int, vector<int>> hash;
+        int n = nums.size();
+        for (int i = 0; i < n; i++) {
+            if (hash.count(nums[i])) {
+                hash[nums[i]][0]++;
+                hash[nums[i]][2] = i;
+            } else {
+                hash[nums[i]] = {1, i, i};
+            }
+        }
+        int maxNum = 0, minLen = 0;
+        for (auto& [_, vec] : hash) {
+            if (maxNum < vec[0]) {
+                maxNum = vec[0];
+                minLen = vec[2] - vec[1] + 1;
+            } else if (maxNum == vec[0]) {
+                if (minLen > vec[2] - vec[1] + 1) {
+                    minLen = vec[2] - vec[1] + 1; 
+                }
+            }
+        }
+    return minLen;
+    }
+};
+```
+
+![image-20220223081328656](README.assets/image-20220223081328656.png)
+
+使用哈希表实现，每一个数映射到一个长度为3的数组，数组中的三个元素分别代表这个数出现的次数、这个数在原数组中第一次出现的位置、这个数在原数组中最后一次出现的位置。当我们记录完所有信息后，我们需要遍历该哈希表，找到元素出现次数最多，且前后位置差最小的数。
