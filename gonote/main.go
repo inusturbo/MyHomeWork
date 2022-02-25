@@ -62,5 +62,7 @@ func main() {
 	// 11.2.7 Redis事务
 	//note.RedisTransaction()
 	// 11.2.8 Redis遍历
-	note.RedisIterate()
+	//note.RedisIterate()
+	//11.2.9 将Redis Hash扫描至Go结构体RedisHashToStruct
+	note.RedisHashToStruct()
 }

@@ -236,3 +236,33 @@ func RedisIterate() {
 		panic(err)
 	}
 }
+
+//11.2.9 将Redis Hash扫描至Go结构体RedisHashToStruct
+type RedisHash struct {
+	Name   string `redis:"name"`
+	Id     int    `redis:"id"`
+	Online bool   `redis:"online"`
+}
+
+func RedisHashToStruct() {
+	db := redis.NewClient(&redis.Options{
+		Addr: "localhost:6379",
+	})
+	ctx := context.Background()
+	var rh1 = RedisHash{
+		Name:   "rhName",
+		Id:     123,
+		Online: true,
+	}
+	db.Pipelined(ctx, func(pipe redis.Pipeliner) error {
+		pipe.HSet(ctx, "rh1", "name", rh1.Name)
+		pipe.HSet(ctx, "rh1", "id", rh1.Id)
+		pipe.HSet(ctx, "rh1", "online", rh1.Online)
+		return nil
+	})
+	var rh2 RedisHash
+	if err := db.HGetAll(ctx, "rh1").Scan(&rh2); err != nil {
+		panic(err)
+	}
+	fmt.Printf("rh2=%+v", rh2)
+}
