@@ -771,3 +771,57 @@ public:
 ![image-20220223081328656](README.assets/image-20220223081328656.png)
 
 使用哈希表实现，每一个数映射到一个长度为3的数组，数组中的三个元素分别代表这个数出现的次数、这个数在原数组中第一次出现的位置、这个数在原数组中最后一次出现的位置。当我们记录完所有信息后，我们需要遍历该哈希表，找到元素出现次数最多，且前后位置差最小的数。
+
+### 20220224 [594. Longest Harmonious Subsequence](https://leetcode-cn.com/problems/longest-harmonious-subsequence/)
+
+```c++
+class Solution {
+public:
+    int findLHS(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int begin = 0;
+        int res = 0;
+        for (int end = 0; end < nums.size(); end++) {
+            while (nums[end] - nums[begin] > 1) {
+                begin++;
+            }
+            if (nums[end] - nums[begin] == 1) {
+                res = max(res, end - begin + 1);
+            }
+        }
+        return res;
+    }
+};
+```
+
+![image-20220225224551508](README.assets/image-20220225224551508.png)
+
+将数组按照从小到大进行排序，我们只需要依次找到相邻两个连续相同元素的子序列，检查该这两个子序列的元素的之差是否为 1
+
+### 20220225 [287. Find the Duplicate Number](https://leetcode-cn.com/problems/find-the-duplicate-number/)
+
+```c++
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        int n = nums.size();
+        int l = 1, r = n - 1, ans = -1;
+        while (l <= r) {
+            int mid = (l + r) >> 1;
+            int cnt = 0;
+            for (int i = 0; i < n; ++i) {
+                cnt += nums[i] <= mid;
+            }
+            if (cnt <= mid) {
+                l = mid + 1;
+            } else {
+                r = mid - 1;
+                ans = mid;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+![image-20220225225627457](README.assets/image-20220225225627457.png)
