@@ -857,3 +857,39 @@ public:
 ![image-20220228074406216](README.assets/image-20220228074406216.png)
 
 今天这道题没读懂什么意思，直接抄答案了。
+
+### 20220301 [870. Advantage Shuffle](https://leetcode-cn.com/problems/advantage-shuffle/)
+
+```c++
+class Solution {
+public:
+    vector<int> advantageCount(vector<int>& nums1, vector<int>& nums2) {
+        int n = nums1.size();
+
+        sort(nums1.begin(), nums1.end(), greater<int>());
+        vector<pair<int, int>> sorted2(n);
+        for(int i = 0; i < n; i++){
+            sorted2[i] = {nums2[i], i};
+        }
+        sort(sorted2.begin(), sorted2.end(), [](const auto& a, const auto& b){return a.first > b.first;});
+
+        vector<int> res(n);
+        int left = 0, right = n - 1;
+        for(int i = 0; i < n; i++){
+            auto [cur, idx] = sorted2[i];
+            if(nums1[left] <= cur) {
+                res[idx] = nums1[right];
+                right--;
+            } else {
+                res[idx] = nums1[left];
+                left++;
+            } 
+        }
+        return res;
+    }
+};
+```
+
+![image-20220301095633442](README.assets/image-20220301095633442.png)
+
+今天这道题，其实是田忌赛马的加强版。nums1就是田忌，nums2就是齐王。使用双指针比较两个排序好的数组即可。
