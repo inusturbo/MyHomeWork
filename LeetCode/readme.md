@@ -957,3 +957,30 @@ public:
 
 这道题主要涉及到树状数组。通过看了许多材料了解了树状数组的概念。
 
+### 20220303 [242. Valid Anagram](https://leetcode-cn.com/problems/valid-anagram/)
+
+```c++
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        if (s.length() != t.length()) {
+            return false;
+        }
+        vector<int> counts(26,0);
+        for (int  i = 0; i < s.length(); ++i) {
+            ++counts[s[i]-'a'];
+            --counts[t[i]-'a'];
+        }
+        for (int i = 0; i< 26; ++i) {
+            if (counts[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+};
+```
+
+![image-20220303100943037](README.assets/image-20220303100943037.png)
+
+今天这道题没什么难度。匹配好两个数组即可。
