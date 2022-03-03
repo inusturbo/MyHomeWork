@@ -893,3 +893,67 @@ public:
 ![image-20220301095633442](README.assets/image-20220301095633442.png)
 
 今天这道题，其实是田忌赛马的加强版。nums1就是田忌，nums2就是齐王。使用双指针比较两个排序好的数组即可。
+
+### 20220302 [307. Range Sum Query - Mutable](https://leetcode-cn.com/problems/range-sum-query-mutable/)
+
+```c++
+class NumArray {
+public:
+    int size;
+    vector<int> nums;
+    vector<int> tree;
+
+    NumArray(vector<int>& nums) {
+        size = nums.size();
+        this->nums = nums;
+        tree.resize(size + 1, 0);
+        for (int i = 0; i < size; ++i) {
+            add(i + 1, nums[i]);
+        }
+    }
+    
+    void update(int index, int val) {
+        int delta = val - nums[index];
+        add(index + 1, delta);
+        nums[index] = val;
+    }
+    
+    int sumRange(int left, int right) {
+        int preleft = query(left);
+        int preright = query(right + 1);
+        return preright - preleft;
+    }
+
+    void add(int idx, int delta) {
+        while (idx < size +1) {
+            tree[idx] += delta;
+            idx += lowbit(idx);
+        }
+    }
+
+    int lowbit(int idx) {
+        return idx & (-idx);
+    }
+
+    int query(int idx) {
+        int sum = 0;
+        while (idx > 0) {
+            sum += tree[idx];
+            idx -= lowbit(idx);
+        }
+        return sum;
+    }
+};
+
+/**
+ * Your NumArray object will be instantiated and called as such:
+ * NumArray* obj = new NumArray(nums);
+ * obj->update(index,val);
+ * int param_2 = obj->sumRange(left,right);
+ */
+```
+
+![image-20220303085850073](README.assets/image-20220303085850073.png)
+
+这道题主要涉及到树状数组。通过看了许多材料了解了树状数组的概念。
+
