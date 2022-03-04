@@ -984,3 +984,29 @@ public:
 ![image-20220303100943037](README.assets/image-20220303100943037.png)
 
 今天这道题没什么难度。匹配好两个数组即可。
+
+### 20220304 [205. Isomorphic Strings](https://leetcode-cn.com/problems/isomorphic-strings/)
+
+```c++
+class Solution {
+public:
+    bool isIsomorphic(string s, string t) {
+         unordered_map<char, char> s2t;
+        unordered_map<char, char> t2s;
+        int len = s.length();
+        for (int i = 0; i < len; ++i) {
+            char x = s[i], y = t[i];
+            if ((s2t.count(x) && s2t[x] != y) || (t2s.count(y) && t2s[y] != x)) {
+                return false;
+            }
+            s2t[x] = y;
+            t2s[y] = x;
+        }
+        return true;
+    }
+};
+```
+
+![image-20220304115233897](README.assets/image-20220304115233897.png)
+
+判断两个字符串同构，记录两个字符串每个位置字符第一次出现的位置。若相同，则同构。
