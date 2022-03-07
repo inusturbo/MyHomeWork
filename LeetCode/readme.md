@@ -1010,3 +1010,32 @@ public:
 ![image-20220304115233897](README.assets/image-20220304115233897.png)
 
 判断两个字符串同构，记录两个字符串每个位置字符第一次出现的位置。若相同，则同构。
+
+### 20220307 [647. Palindromic Substrings](https://leetcode-cn.com/problems/palindromic-substrings/)
+
+```c++
+class Solution {
+public:
+    int countSubstrings(string s) {
+        int count = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            count += extendSubstrings(s, i, i);
+            count += extendSubstrings(s, i, i + 1);
+        }
+        return count;
+    }
+    int extendSubstrings(string s, int l, int r) {
+        int count = 0;
+        while (l >= 0 && r < s.length() && s[l] == s[r]) {
+            --l;
+            ++r;
+            ++count;
+        }
+        return count;
+    }
+};
+```
+
+![image-20220307104455508](README.assets/image-20220307104455508.png)
+
+从字符串的每个位置开始，向左向右延长，判断存在多少以当前位置为中轴的回文字符串。
