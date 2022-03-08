@@ -1039,3 +1039,28 @@ public:
 ![image-20220307104455508](README.assets/image-20220307104455508.png)
 
 从字符串的每个位置开始，向左向右延长，判断存在多少以当前位置为中轴的回文字符串。
+
+### 20220308 [696. Count Binary Substrings](https://leetcode-cn.com/problems/count-binary-substrings/)
+
+```c++
+class Solution {
+public:
+    int countBinarySubstrings(string s) {
+        int pre = 0, cur = 1, count = 0;
+        for (int i = 1; i < s.length(); ++i) {
+            if (s[i] == s[i - 1]) {
+                ++cur;
+            } else {
+                pre = cur;
+                cur = 1;
+            }
+            if (pre >= cur) {
+                ++count;
+            }
+        }
+        return count;
+    }
+};
+```
+
+![image-20220308094731187](README.assets/image-20220308094731187.png)
