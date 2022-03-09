@@ -1107,3 +1107,44 @@ int calculate(string s) {
 ![image-20220309075855226](README.assets/image-20220309075855226.png)
 
 要处理空格。遇到空格要清楚。**关键在于层层拆解问题，化整为零，逐个击破**
+
+### 20220310[28. Implement strStr()](https://leetcode-cn.com/problems/implement-strstr/)
+
+```c++
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        int k = -1, n = haystack.length(), p = needle.length();
+        if (p == 0) return 0;
+        vector<int> next(p, -1);
+        calNext(needle, next);
+        for (int i = 0; i < n; ++i){
+            while (k > -1 && needle[k+1] != haystack[i]) {
+                k = next[k];
+            }
+            if (needle[k+1] == haystack[i]) {
+                ++k;
+            }
+            if (k == p-1) {
+                return i - p + 1;
+            }
+        }
+        return -1;
+    }
+    void calNext(const string &needle, vector<int> &next) {
+        for (int j = 1, p = -1; j < needle.length(); ++j) {
+            while (p > -1 && needle[p+1] != needle[j]) {
+                p = next[p];
+            }
+            if (needle[p+1] == needle[j]) {
+                ++p;
+            }
+            next[j] = p;
+        }
+    }
+};
+```
+
+
+
+![image-20220310072818174](README.assets/image-20220310072818174.png)
