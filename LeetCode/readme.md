@@ -1108,7 +1108,7 @@ int calculate(string s) {
 
 要处理空格。遇到空格要清楚。**关键在于层层拆解问题，化整为零，逐个击破**
 
-### 20220310[28. Implement strStr()](https://leetcode-cn.com/problems/implement-strstr/)
+### 20220310 [28. Implement strStr()](https://leetcode-cn.com/problems/implement-strstr/)
 
 ```c++
 class Solution {
@@ -1148,3 +1148,30 @@ public:
 
 
 ![image-20220310072818174](README.assets/image-20220310072818174.png)
+
+### 20220311 [409. Longest Palindrome](https://leetcode-cn.com/problems/longest-palindrome/)
+
+```c++
+class Solution {
+public:
+    int longestPalindrome(string s) {
+        unordered_map<char, int> count;
+        int ans = 0;
+        for (char c : s) {
+            ++count[c];
+        }
+        for (auto p : count) {
+            int v = p.second;
+            ans += v / 2 * 2;
+            if (v % 2 == 1 && ans % 2 == 0) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+![image-20220311084540634](README.assets/image-20220311084540634.png)
+
+贪心法
