@@ -1175,3 +1175,31 @@ public:
 ![image-20220311084540634](README.assets/image-20220311084540634.png)
 
 贪心法
+
+### 20220314 [3. Longest Substring Without Repeating Characters](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)
+
+```c++
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        unordered_set<char> occ;
+        int n = s.size();
+        int rk = -1, ans = 0;
+        for (int i = 0; i < n; ++i) {
+            if (i != 0) {
+                occ.erase(s[i - 1]);
+            }
+            while (rk + 1 < n && !occ.count(s[rk + 1])) {
+                occ.insert(s[rk + 1]);
+                ++rk;
+            }
+            ans = max(ans, rk - i + 1);
+        }
+        return ans;
+    }
+};
+```
+
+![image-20220314225043365](README.assets/image-20220314225043365.png)
+
+使用滑动窗口法。
