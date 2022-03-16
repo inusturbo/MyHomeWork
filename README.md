@@ -2,7 +2,14 @@
 This repo is my homework.
 Click [here](https://inusturbo.github.io) to visit my homepage.
 
+## Commit History
+
+[![Commit History Chart](https://commit-history-api.herokuapp.com/svg?repos=inusturbo/MyHomeWork&type=Date)](https://the-commit-history.vercel.app/#inusturbo/MyHomeWork&Date)
+
+Thanks [the-commit-history](https://the-commit-history.vercel.app/)
+
 ## GO language
+
 The *[gonote](./gonote)* folder is my notes for learning the GO language.
 Resources for learning the go language(Chinese): [FangChannel](https://www.bilibili.com/video/BV1s341147US).  
 
