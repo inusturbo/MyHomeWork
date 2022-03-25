@@ -1203,3 +1203,24 @@ public:
 ![image-20220314225043365](README.assets/image-20220314225043365.png)
 
 使用滑动窗口法。
+
+### 20220325 [172. Factorial Trailing Zeroes](https://leetcode-cn.com/problems/factorial-trailing-zeroes/)
+
+```c++
+class Solution {
+public:
+    int trailingZeroes(int n) {
+        int res = 0;
+        long divisor = 5;
+        while (divisor <= n) {
+            res += n / divisor;
+            divisor *= 5;
+        }
+        return res;
+    }
+};
+```
+
+![image-20220325114427039](README.assets/image-20220325114427039.png)
+
+这道题直接算阶乘，算到电脑爆炸也算不完，只能考虑到从数字里拆出5和2，一对5和2就会出来1个0。但是一组阶乘里2个个数管够，肯定有配对的2，所以此刻就考察有多少个5就可以了。
