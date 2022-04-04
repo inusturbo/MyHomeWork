@@ -65,3 +65,23 @@ public:
 
 ![image-20220404081853928](coderandom.assets/image-20220404081853928.png)
 
+### 3.3 [27. Remove Element](https://leetcode-cn.com/problems/remove-element/)
+
+这道题首先想到的就是暴力解法，两遍for循环，第一遍找到要删除的数字，嵌套的for负责把后面的元素踢到前面来。但是这个方法有点笨，因此使用双指针法：通过一个快指针和一个慢指针在一个for里完成两个for的工作。
+
+```c++
+class Solution {
+public:
+    int removeElement(vector<int>& nums, int val) {
+        int slowIndex = 0;
+        for (int fastIndex = 0; fastIndex < nums.size(); fastIndex++) {
+            if (val != nums[fastIndex]) {
+                nums[slowIndex++] = nums[fastIndex];
+            }
+        }
+        return slowIndex;
+    }
+};
+```
+
+![image-20220405080947351](coderandom.assets/image-20220405080947351.png)
