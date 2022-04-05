@@ -85,3 +85,32 @@ public:
 ```
 
 ![image-20220405080947351](coderandom.assets/image-20220405080947351.png)
+
+### 3.4 [209. Minimum Size Subarray Sum](https://leetcode-cn.com/problems/minimum-size-subarray-sum/)
+
+暴力法使用两个for循环，反复寻找符合条件的子数组。也可以使用滑动窗口，也就是不断调整数组的起始位置和终止位置，来获得想要的结果。滑动窗口可以理解为是双指针法的一种。可以把复杂度从平方级下降到n级别：
+
+```c++
+class Solution {
+public:
+    int minSubArrayLen(int target, vector<int>& nums) {
+        int result = INT32_MAX;
+        int sum = 0;
+        int i = 0;
+        int subLength = 0;
+        for (int j = 0; j < nums.size(); j++) {
+            sum += nums[j];
+            while (sum >= target) {
+                subLength = (j - i + 1);
+                result = result < subLength ? result : subLength;
+                // 这里是这个滑动窗口的精髓，不断变更i（窗口的起始位置）
+                sum -= nums[i++];
+            }
+        }
+        return result == INT32_MAX ? 0 : result;
+    }
+};
+```
+
+![image-20220406072725685](coderandom.assets/image-20220406072725685.png)
+
