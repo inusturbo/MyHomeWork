@@ -114,3 +114,49 @@ public:
 
 ![image-20220406072725685](coderandom.assets/image-20220406072725685.png)
 
+### 3.5 [59. Spiral Matrix II](https://leetcode-cn.com/problems/spiral-matrix-ii/)
+
+这道题需要注意的是，要么左闭右开，要么左开右闭。千万不能乱了。
+
+```c++
+class Solution {
+public:
+    vector<vector<int>> generateMatrix(int n) {
+        vector<vector<int>> res(n, vector<int>(n, 0));
+        int startx = 0, starty = 0;
+        int loop = n / 2;
+        int mid = n / 2;
+        int count = 1;
+        int offset = 1;
+        int i, j;
+        while (loop--) {
+            i = startx;
+            j = starty;
+            for (j = starty; j < starty + n - offset; j++) {
+                res[startx][j] = count++;
+            }
+            for (i = startx; i < startx + n - offset; i++) {
+                res[i][j] = count++;
+            }
+            for (; j >starty; j--) {
+                res[i][j] = count++;
+            }
+            for(; i > startx; i--) {
+                res[i][j] = count++;
+            }
+            startx++;
+            starty++;
+          	// offset用于控制每一圈中每一条边遍历的长度
+            offset += 2;
+        }
+        if (n % 2) {
+            res[mid][mid] = count;
+        }
+        return res;
+    }
+};
+```
+
+
+
+![image-20220407083529048](coderandom.assets/image-20220407083529048.png)
