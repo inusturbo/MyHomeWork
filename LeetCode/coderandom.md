@@ -8,7 +8,7 @@
 
 ## 20220404 3.1-3.2
 
-### 3.1
+### 3.1 20220404
 
 P35代码
 
@@ -37,7 +37,7 @@ int main() {
 
 可以看出每个int占据4字节，所以相邻元素是连续的
 
-### 3.2 [704. Binary Search](https://leetcode-cn.com/problems/binary-search/)
+### 3.2 [704. Binary Search](https://leetcode-cn.com/problems/binary-search/) 20220404
 
 二分查找虽然比较简单，但是也要仔细考虑边界条件。题目中是有序无重复的数组，因此可用二分法。
 
@@ -65,7 +65,7 @@ public:
 
 ![image-20220404081853928](coderandom.assets/image-20220404081853928.png)
 
-### 3.3 [27. Remove Element](https://leetcode-cn.com/problems/remove-element/)
+### 3.3 [27. Remove Element](https://leetcode-cn.com/problems/remove-element/) 20220405
 
 这道题首先想到的就是暴力解法，两遍for循环，第一遍找到要删除的数字，嵌套的for负责把后面的元素踢到前面来。但是这个方法有点笨，因此使用双指针法：通过一个快指针和一个慢指针在一个for里完成两个for的工作。
 
@@ -86,7 +86,7 @@ public:
 
 ![image-20220405080947351](coderandom.assets/image-20220405080947351.png)
 
-### 3.4 [209. Minimum Size Subarray Sum](https://leetcode-cn.com/problems/minimum-size-subarray-sum/)
+### 3.4 [209. Minimum Size Subarray Sum](https://leetcode-cn.com/problems/minimum-size-subarray-sum/) 20220406
 
 暴力法使用两个for循环，反复寻找符合条件的子数组。也可以使用滑动窗口，也就是不断调整数组的起始位置和终止位置，来获得想要的结果。滑动窗口可以理解为是双指针法的一种。可以把复杂度从平方级下降到n级别：
 
@@ -114,7 +114,7 @@ public:
 
 ![image-20220406072725685](coderandom.assets/image-20220406072725685.png)
 
-### 3.5 [59. Spiral Matrix II](https://leetcode-cn.com/problems/spiral-matrix-ii/)
+### 3.5 [59. Spiral Matrix II](https://leetcode-cn.com/problems/spiral-matrix-ii/) 20220407
 
 这道题需要注意的是，要么左闭右开，要么左开右闭。千万不能乱了。
 
@@ -160,3 +160,43 @@ public:
 
 
 ![image-20220407083529048](coderandom.assets/image-20220407083529048.png)
+
+### [203. Remove Linked List Elements](https://leetcode-cn.com/problems/remove-linked-list-elements/) 20220408
+
+今天是一道基础的删除链表中的节点的题。通过设置一个虚拟的头节点，讲所有删除的操作都统一起来。
+
+```c++
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* removeElements(ListNode* head, int val) {
+        ListNode* dummyHead = new ListNode(0);
+        dummyHead->next = head;
+        ListNode* cur = dummyHead;
+        while (cur->next != NULL) {
+            if (cur->next->val == val) {
+                ListNode* tmp = cur->next;
+                cur->next = cur->next->next;
+                delete tmp;
+            } else {
+                cur = cur->next;
+            }
+        }
+        head = dummyHead->next;
+        delete dummyHead;
+        return head;
+
+    }
+};
+```
+
+![image-20220408073349804](coderandom.assets/image-20220408073349804.png)
