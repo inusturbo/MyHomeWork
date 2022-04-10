@@ -161,7 +161,7 @@ public:
 
 ![image-20220407083529048](coderandom.assets/image-20220407083529048.png)
 
-### [203. Remove Linked List Elements](https://leetcode-cn.com/problems/remove-linked-list-elements/) 20220408
+### 4.1-4.2 [203. Remove Linked List Elements](https://leetcode-cn.com/problems/remove-linked-list-elements/) 20220408
 
 今天是一道基础的删除链表中的节点的题。通过设置一个虚拟的头节点，讲所有删除的操作都统一起来。
 
@@ -200,3 +200,94 @@ public:
 ```
 
 ![image-20220408073349804](coderandom.assets/image-20220408073349804.png)
+
+### 20220411 4.3 [707. Design Linked List](https://leetcode-cn.com/problems/design-linked-list/)
+
+```c++
+class MyLinkedList {
+public:
+    struct LinkedNode {
+        int val;
+        LinkedNode* next;
+        LinkedNode(int val) : val(val), next(nullptr) { }
+    };
+
+    MyLinkedList() {
+        _dummyHead = new LinkedNode(0);
+        _size = 0;
+    }
+    
+    int get(int index) {
+        if (index > (_size - 1) || index < 0) {
+            return -1;
+        }
+        LinkedNode* cur = _dummyHead->next;
+        while(index--) {
+            cur = cur->next;
+        }
+        return cur->val;
+    }
+    
+    void addAtHead(int val) {
+        LinkedNode* newNode = new LinkedNode(val);
+        newNode->next = _dummyHead->next;
+        _dummyHead->next = newNode;
+        _size++;
+    }
+    
+    void addAtTail(int val) {
+        LinkedNode* newNode = new LinkedNode(val);
+        LinkedNode* cur = _dummyHead;
+        while (cur->next != nullptr) {
+            cur = cur->next;
+        }
+        cur->next = newNode;
+        _size++;
+    }
+    
+    void addAtIndex(int index, int val) {
+        if (index > _size) {
+            return;
+        }
+        LinkedNode* newNode = new LinkedNode(val);
+        LinkedNode* cur = _dummyHead;
+        while (index--) {
+            cur = cur->next;
+        }
+        newNode->next = cur->next;
+        cur->next = newNode;
+        _size++;
+    }
+    
+    void deleteAtIndex(int index) {
+        if (index >= _size || index < 0) {
+            return;
+        }
+        LinkedNode* cur = _dummyHead;
+        while (index--) {
+            cur = cur->next;
+        }
+        LinkedNode* tmp = cur->next;
+        cur->next = cur->next->next;
+        delete tmp;
+        _size--;
+    }
+ private:
+    int _size;
+    LinkedNode* _dummyHead;
+};
+
+/**
+ * Your MyLinkedList object will be instantiated and called as such:
+ * MyLinkedList* obj = new MyLinkedList();
+ * int param_1 = obj->get(index);
+ * obj->addAtHead(val);
+ * obj->addAtTail(val);
+ * obj->addAtIndex(index,val);
+ * obj->deleteAtIndex(index);
+ */
+```
+
+![image-20220411073226288](coderandom.assets/image-20220411073226288.png)
+
+今天这道题相当于自己完整写一个链表和处理逻辑，整体难度不高，但是有一些细节需要处理，如对于非法值的处理等等。
