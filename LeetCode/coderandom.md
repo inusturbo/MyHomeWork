@@ -291,3 +291,28 @@ public:
 ![image-20220411073226288](coderandom.assets/image-20220411073226288.png)
 
 今天这道题相当于自己完整写一个链表和处理逻辑，整体难度不高，但是有一些细节需要处理，如对于非法值的处理等等。
+
+### 20220412 4.4 [206. Reverse Linked List](https://leetcode-cn.com/problems/reverse-linked-list/)
+
+```c++
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        ListNode* tmp;
+        ListNode* cur = head;
+        ListNode* pre = nullptr;
+        while (cur) {
+            tmp = cur->next;
+            cur->next = pre;
+            pre = cur;
+            cur = tmp;
+        }
+        return pre;
+
+    }
+};
+```
+
+![image-20220412071749755](coderandom.assets/image-20220412071749755.png)
+
+今天是一道反转链表的题目，只要注意处理好循环中值得条件即可，难度不大。1⃣️让tmp=cur的下一个节点2⃣️让cur的下一个节点变成pre3⃣️将pre移动至cur4⃣️将cur移动至tmp
