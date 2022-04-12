@@ -316,3 +316,31 @@ public:
 ![image-20220412071749755](coderandom.assets/image-20220412071749755.png)
 
 今天是一道反转链表的题目，只要注意处理好循环中值得条件即可，难度不大。1⃣️让tmp=cur的下一个节点2⃣️让cur的下一个节点变成pre3⃣️将pre移动至cur4⃣️将cur移动至tmp
+
+### 20220413 4.5 [19. Remove Nth Node From End of List](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/)
+
+```c++
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ListNode* dummyHead = new ListNode(0);
+        dummyHead->next = head;
+        ListNode* slow = dummyHead;
+        ListNode* fast = dummyHead;
+        while(n-- && fast != nullptr) {
+            fast = fast->next;
+        }
+        fast = fast->next;
+        while (fast != nullptr){
+            fast = fast->next;
+            slow = slow->next;
+        }
+        slow->next = slow->next->next;
+        return dummyHead->next;
+    }
+};
+```
+
+![image-20220413073208088](coderandom.assets/image-20220413073208088.png)
+
+今天这道题做法很神奇，使用双指针，先让fast移动N步，随后让fast和slow同时移动，直到fast到达链表末尾。
