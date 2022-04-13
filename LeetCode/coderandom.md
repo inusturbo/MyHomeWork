@@ -344,3 +344,33 @@ public:
 ![image-20220413073208088](coderandom.assets/image-20220413073208088.png)
 
 今天这道题做法很神奇，使用双指针，先让fast移动N步，随后让fast和slow同时移动，直到fast到达链表末尾。
+
+### 20220414 4.6 [142. Linked List Cycle II](https://leetcode-cn.com/problems/linked-list-cycle-ii/)
+
+```c++
+class Solution {
+public:
+    ListNode *detectCycle(ListNode *head) {
+        ListNode* fast = head;
+        ListNode* slow = head;
+        while (fast != nullptr && fast->next != nullptr) {
+            slow = slow->next;
+            fast = fast->next->next;
+            if (slow == fast) {
+                ListNode* index1 = fast;
+                ListNode* index2 = head;
+                while (index1 != index2) {
+                    index1 = index1->next;
+                    index2 = index2->next;
+                }
+                return index2;
+            }
+        }
+        return nullptr;
+    }
+};
+```
+
+![image-20220414074340660](coderandom.assets/image-20220414074340660.png)
+
+这道题还需要一些数学知识。首先使用快慢指针判断是否存在环。然后通过简单的数学计算相遇位置和head位置的相对关系。 详情见书P66。
