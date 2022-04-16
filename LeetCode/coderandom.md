@@ -374,3 +374,30 @@ public:
 ![image-20220414074340660](coderandom.assets/image-20220414074340660.png)
 
 这道题还需要一些数学知识。首先使用快慢指针判断是否存在环。然后通过简单的数学计算相遇位置和head位置的相对关系。 详情见书P66。
+
+### 20220415 5.1 5.2 [242. Valid Anagram](https://leetcode-cn.com/problems/valid-anagram/)
+
+```c++
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        int record[26] = {0};
+        for (int i = 0; i < s.size(); i++) {
+            record[s[i] - 'a']++;
+        }
+        for (int i = 0; i < t.size(); i++) {
+            record[t[i] - 'a']--;
+        }
+        for (int i = 0; i < 26; i++) {
+            if (record[i] != 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+};
+```
+
+![image-20220415073712585](coderandom.assets/image-20220415073712585.png)
+
+今天这道题蛮简单的，就是拉一个hash table看看有没有重复和冲突。没有就返回true
