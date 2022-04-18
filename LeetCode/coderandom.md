@@ -401,3 +401,25 @@ public:
 ![image-20220415073712585](coderandom.assets/image-20220415073712585.png)
 
 今天这道题蛮简单的，就是拉一个hash table看看有没有重复和冲突。没有就返回true
+
+### 20220418 5.3 [349. Intersection of Two Arrays](https://leetcode-cn.com/problems/intersection-of-two-arrays/)
+
+```c++
+class Solution {
+public:
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        unordered_set<int> result_set;
+        unordered_set<int> nums_set(nums1.begin(), nums1.end());
+        for (int num: nums2) {
+            if (nums_set.find(num)!= nums_set.end()){
+                result_set.insert(num);
+            }
+        }
+        return vector<int>(result_set.begin(),result_set.end());
+    }
+};
+```
+
+![image-20220418074016075](coderandom.assets/image-20220418074016075.png)
+
+今天这道题利用hash table就可以很方便的做出来。
