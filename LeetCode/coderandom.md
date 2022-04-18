@@ -423,3 +423,26 @@ public:
 ![image-20220418074016075](coderandom.assets/image-20220418074016075.png)
 
 今天这道题利用hash table就可以很方便的做出来。
+
+### 20220419 5.4 [1. Two Sum](https://leetcode-cn.com/problems/two-sum/)
+
+```c++
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int, int> map;
+        for (int i = 0; i < nums.size(); i++) {
+            auto iter = map.find(target - nums[i]);
+            if (iter != map.end()) {
+                return {iter->second, i};
+            }
+            map.insert(pair<int, int> (nums[i],i));
+        }
+        return {};
+    }
+};
+```
+
+![image-20220419074133214](coderandom.assets/image-20220419074133214.png)
+
+本题用map而不用set 的原因：set是一个集合，里面放的元素只能是一个key，但是本题不光要判断y是否存在，还要记住y的位置，map是<key, value>的结构，可以保存值的同时也保留下标。
