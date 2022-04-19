@@ -446,3 +446,32 @@ public:
 ![image-20220419074133214](coderandom.assets/image-20220419074133214.png)
 
 本题用map而不用set 的原因：set是一个集合，里面放的元素只能是一个key，但是本题不光要判断y是否存在，还要记住y的位置，map是<key, value>的结构，可以保存值的同时也保留下标。
+
+### 20220420 5.5 [454. 4Sum II](https://leetcode-cn.com/problems/4sum-ii/)
+
+```c++
+class Solution {
+public:
+    int fourSumCount(vector<int>& nums1, vector<int>& nums2, vector<int>& nums3, vector<int>& nums4) {
+        unordered_map<int, int> umap;
+        for (int a : nums1) {
+            for (int b : nums2) {
+                umap[a + b]++;
+            }
+        }
+        int count = 0;
+        for (int c : nums3) {
+            for (int d : nums4) {
+                if (umap.find(0 - (c + d)) != umap.end()) {
+                    count += umap[0 - (c + d)];
+                }
+            }
+        }
+        return count;
+    }
+};
+```
+
+![image-20220420072452105](coderandom.assets/image-20220420072452105.png)
+
+把nums1、nums2算成第一组，nums3、nums4算成第二组，这样就把这个题转换成第一1题的解决方法。
