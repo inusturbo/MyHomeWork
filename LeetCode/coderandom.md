@@ -475,3 +475,47 @@ public:
 ![image-20220420072452105](coderandom.assets/image-20220420072452105.png)
 
 把nums1、nums2算成第一组，nums3、nums4算成第二组，这样就把这个题转换成第一1题的解决方法。
+
+### 20220421 5.6 [15. 3Sum](https://leetcode-cn.com/problems/3sum/)
+
+```c++
+class Solution {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        vector<vector<int>> result;
+        sort(nums.begin(), nums.end());
+        for (int i = 0; i < nums.size(); i++) {
+            if (nums[i] > 0) {
+                return result;
+            }
+            if (i > 0 && nums[i] == nums[i - 1]) {
+                continue;
+            }
+            int left = i + 1;
+            int right = nums.size() - 1;
+            while (right > left) {
+                if (nums[i] + nums[left] + nums[right] > 0) {
+                    right--;
+                } else if (nums[i] + nums[left] + nums[right] < 0) {
+                    left++;
+                } else {
+                    result.push_back(vector<int>{nums[i], nums[left], nums[right]});
+                    while (right >left && nums[right] == nums[right - 1]) {
+                        right--;
+                    }
+                    while (right >left && nums[left] == nums[left + 1]) {
+                        left++;
+                    }
+                    right--;
+                    left++;
+                }
+            }
+        }
+        return result;
+    }
+};
+```
+
+![image-20220421072045390](coderandom.assets/image-20220421072045390.png)
+
+这道题和偶数个数字求和有所不同，如果仍然用hash法就会非常复杂。因此本题使用了双指针法。首先将整个数组排序。如果nums[i]+nums[left]+nums[right]大了，那就让right往左移动。如果小了，就让left往右移动，知道left和right相遇。将i遍历一遍之后，就可以获得所有规定的数字了。
