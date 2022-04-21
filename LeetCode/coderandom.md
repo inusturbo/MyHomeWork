@@ -519,3 +519,45 @@ public:
 ![image-20220421072045390](coderandom.assets/image-20220421072045390.png)
 
 这道题和偶数个数字求和有所不同，如果仍然用hash法就会非常复杂。因此本题使用了双指针法。首先将整个数组排序。如果nums[i]+nums[left]+nums[right]大了，那就让right往左移动。如果小了，就让left往右移动，知道left和right相遇。将i遍历一遍之后，就可以获得所有规定的数字了。
+
+### 20220422 5.7 [18. 4Sum](https://leetcode-cn.com/problems/4sum/)
+
+```c++
+class Solution {
+public:
+    vector<vector<int>> fourSum(vector<int>& nums, int target) {
+        vector<vector<int>> result;
+        sort(nums.begin(), nums.end());
+        for (int k = 0; k < nums.size(); k++) {
+            if (k > 0 && nums[k] == nums[k - 1]) {
+                continue;
+            }
+            for (int i = k + 1; i < nums.size(); i++) {
+                if (i > k + 1 && nums[i] == nums[i - 1]) {
+                    continue;
+                }
+                int left = i + 1;
+                int right = nums.size() - 1;
+                while (right > left) {
+                    if (nums[k] + nums[i] > target - (nums[left] + nums[right])) {
+                        right--;
+                    } else if (nums[k] + nums[i] < target - (nums[left] + nums[right])) {
+                        left++;
+                    } else {
+                        result.push_back(vector<int>{nums[k], nums[i], nums[left], nums[right]});
+                        while (right > left && nums[right] == nums[right - 1]) right--;
+                        while (right > left && nums[left] == nums[left + 1]) left++;
+                        right--;
+                        left++;
+                    }
+                }
+            }
+        }
+        return result;
+    }
+};
+```
+
+![image-20220422073358768](coderandom.assets/image-20220422073358768.png)
+
+这道题和昨天那道题有点像，都可以用双指针解决，不同的是，这次套了两次循环。
