@@ -579,4 +579,24 @@ public:
 
 类似前几天的链表反转，但是字符串原则是数组，直接按下表形成“双指针”，来反转就可以了。
 
-### 20220426 
+### 20220426 6.3 [541. Reverse String II](https://leetcode-cn.com/problems/reverse-string-ii/)
+
+```c++
+class Solution {
+public:
+    string reverseStr(string s, int k) {
+        for (int i = 0; i < s.size(); i += (2 * k)) {
+            if ( i + k <= s.size()) {
+                reverse(s.begin() + i, s.begin() + i + k);
+                continue;
+            }
+            reverse(s.begin() + i, s.begin() + s.size());
+        }
+        return s;
+    }
+};
+```
+
+![image-20220426075515314](coderandom.assets/image-20220426075515314.png)
+
+这道题就是把昨天的字符串反转在局部实现了。在for上进行控制就可以。
