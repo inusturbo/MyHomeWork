@@ -561,3 +561,22 @@ public:
 ![image-20220422073358768](coderandom.assets/image-20220422073358768.png)
 
 这道题和昨天那道题有点像，都可以用双指针解决，不同的是，这次套了两次循环。
+
+### 20220425 6.1 6.2 [344. Reverse String](https://leetcode-cn.com/problems/reverse-string/)
+
+```c++
+class Solution {
+public:
+    void reverseString(vector<char>& s) {
+        for (int i = 0, j = s.size() - 1; i < s.size()/2; i++, j--) {
+            swap(s[i], s[j]);
+        }
+    }
+};
+```
+
+![image-20220425065306061](coderandom.assets/image-20220425065306061.png)
+
+类似前几天的链表反转，但是字符串原则是数组，直接按下表形成“双指针”，来反转就可以了。
+
+### 20220426 
