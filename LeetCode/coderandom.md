@@ -689,7 +689,7 @@ public:
 | a    | a    | b    | a    | a    | f    |
 | 0    | 1    | 0    | 1    | 2    | 0    |
 
-### 20220429 [28. Implement strStr()](https://leetcode-cn.com/problems/implement-strstr/)
+### 20220429 6.6 [28. Implement strStr()](https://leetcode-cn.com/problems/implement-strstr/)
 
 ```c++
 class Solution {
@@ -733,3 +733,40 @@ public:
 ![image-20220429092014817](coderandom.assets/image-20220429092014817.png)
 
 今天这道题实践了昨天的KMP算法。
+
+### 20220502 6.7 [459. Repeated Substring Pattern](https://leetcode-cn.com/problems/repeated-substring-pattern/)
+
+```c++
+class Solution {
+public:
+    void getNext(int* next, const string& s) {
+        next[0] = -1;
+        int j = -1;
+        for (int i = 1; i < s.size(); i++) {
+            while (j > 0 && s[i] != s[j + 1]) {
+                j = next[j];
+            }
+            if (s[i] == s[j + 1]) {
+                j++;
+            }
+            next[i] = j;
+        }
+    }
+    bool repeatedSubstringPattern(string s) {
+        if (s.size() == 0) {
+            return false;
+        }
+        int next[s.size()];
+        getNext(next, s);
+        int len = s.size();
+        if (next[len - 1] != -1 && len % (len - (next[len - 1] + 1)) == 0) {
+            return true;
+        }
+        return false;
+    }
+};
+```
+
+![image-20220502070459167](coderandom.assets/image-20220502070459167.png)
+
+这道题乍看上去想不到和KMP算法的联系，但是KMP算法的本质不就是用来寻找重复的子串吗。因此用KMP算法可以方便的解决本题。
