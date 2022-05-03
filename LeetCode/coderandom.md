@@ -814,3 +814,48 @@ public:
 ![image-20220503092139178](coderandom.assets/image-20220503092139178.png)
 
 在工业级应用中，一定要注意代码的复用，尽量避免重复造轮子。
+
+### 7.3 [225. Implement Stack using Queues](https://leetcode-cn.com/problems/implement-stack-using-queues/)
+
+```c++
+class MyStack {
+public:
+    queue<int> que1;
+    queue<int> que2;
+    MyStack() {
+
+    }
+    
+    void push(int x) {
+        que1.push(x);
+    }
+    
+    int pop() {
+        int size = que1.size();
+        size--;
+        while (size--) {
+            que2.push(que1.front());
+            que1.pop();
+        }
+        int result = que1.front();
+        que1.pop();
+        que1 = que2;
+        while (!que2.empty()) {
+            que2.pop();
+        }
+        return result;
+    }
+    
+    int top() {
+        return que1.back();
+    }
+    
+    bool empty() {
+        return que1.empty();
+    }
+};
+```
+
+![image-20220504071539717](coderandom.assets/image-20220504071539717.png)
+
+利用队列实现栈
