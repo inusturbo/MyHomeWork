@@ -770,3 +770,47 @@ public:
 ![image-20220502070459167](coderandom.assets/image-20220502070459167.png)
 
 这道题乍看上去想不到和KMP算法的联系，但是KMP算法的本质不就是用来寻找重复的子串吗。因此用KMP算法可以方便的解决本题。
+
+### 20220503 7.1 7.2 [232. Implement Queue using Stacks](https://leetcode-cn.com/problems/implement-queue-using-stacks/)
+
+```c++
+class MyQueue {
+public:
+    stack<int> stIn;
+    stack<int> stOut;
+
+    MyQueue() {
+
+    }
+    
+    void push(int x) {
+        stIn.push(x);
+    }
+    
+    int pop() {
+        if (stOut.empty()) {
+            while (!stIn.empty()) {
+                stOut.push(stIn.top());
+                stIn.pop();
+            }
+        }
+        int result = stOut.top();
+        stOut.pop();
+        return result;
+    }
+    
+    int peek() {
+        int res = this->pop();
+        stOut.push(res);
+        return res;
+    }
+    
+    bool empty() {
+        return stIn.empty() && stOut.empty();
+    }
+};
+```
+
+![image-20220503092139178](coderandom.assets/image-20220503092139178.png)
+
+在工业级应用中，一定要注意代码的复用，尽量避免重复造轮子。
