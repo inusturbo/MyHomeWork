@@ -815,7 +815,7 @@ public:
 
 在工业级应用中，一定要注意代码的复用，尽量避免重复造轮子。
 
-### 7.3 [225. Implement Stack using Queues](https://leetcode-cn.com/problems/implement-stack-using-queues/)
+### 20220504 7.3 [225. Implement Stack using Queues](https://leetcode-cn.com/problems/implement-stack-using-queues/)
 
 ```c++
 class MyStack {
@@ -859,3 +859,34 @@ public:
 ![image-20220504071539717](coderandom.assets/image-20220504071539717.png)
 
 利用队列实现栈
+
+### 20220505 7.4 [20. Valid Parentheses](https://leetcode-cn.com/problems/valid-parentheses/)
+
+```c++
+class Solution {
+public:
+    bool isValid(string s) {
+        stack<char> parsed;
+        for (int i = 0; i < s.length(); ++i) {
+            if (s[i] == '{' || s[i] == '[' || s[i] == '(') {
+                parsed.push(s[i]);
+            } else {
+                if (parsed.empty()) {
+                    return false;
+                }
+                char c = parsed.top();
+                if ((s[i] == '}' && c == '{') ||
+                    (s[i] == ']' && c == '[') ||
+                    (s[i] == ')' && c == '(')) {
+                        parsed.pop();
+                    } else {
+                        return false;
+                    }
+            }
+        }
+        return parsed.empty();
+    }
+};
+```
+
+![image-20220505092059560](coderandom.assets/image-20220505092059560.png)
