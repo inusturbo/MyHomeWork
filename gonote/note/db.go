@@ -67,6 +67,7 @@ func LeveldbIterate() {
 	for iter.Next() {
 		fmt.Printf("%v=%v\n", string(iter.Key()), string(iter.Value()))
 	}
+
 	iter.Release()
 	err = iter.Error()
 	if err != nil {
