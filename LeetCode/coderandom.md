@@ -964,3 +964,42 @@ public:
 ```
 
 ![image-20220509072309125](coderandom.assets/image-20220509072309125.png)
+
+### 20220510 7.7 [347. Top K Frequent Elements](https://leetcode.cn/problems/top-k-frequent-elements/)
+
+```c++
+class Solution {
+public:
+    class mycomparison {
+    public:
+        bool operator() (const pair<int, int>& lhs, const pair<int, int>& rhs) {
+            return lhs.second > rhs.second;
+        }
+    };
+    vector<int> topKFrequent(vector<int>& nums, int k) {
+        unordered_map<int, int> map;
+        for (int i = 0; i < nums.size(); i++) {
+            map[nums[i]]++;
+        }
+        priority_queue<pair<int, int>, vector<pair<int, int>>, mycomparison> pri_que;
+        for (unordered_map<int, int>::iterator it = map.begin(); it != map.end(); it++) {
+            pri_que.push(*it);
+            if (pri_que.size() > k) {
+                pri_que.pop();
+            }
+        }
+        vector<int> result(k);
+        for (int i = k - 1; i >= 0; i--) {
+            result[i] = pri_que.top().first;
+            pri_que.pop();
+        }
+        return result;
+    }
+};
+```
+
+![image-20220510073315314](coderandom.assets/image-20220510073315314.png)
+
+在C++中优先级队列`priority_queue`和`max_heap`的底层实现都是大顶堆。
+
+一开始想到要用大顶堆，但是定义一个大小为k的大顶堆，每次更新的时候都把最大值弹出了，无法保留前k个高频元素。因此考虑使用小顶堆。
