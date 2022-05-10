@@ -1003,3 +1003,33 @@ public:
 在C++中优先级队列`priority_queue`和`max_heap`的底层实现都是大顶堆。
 
 一开始想到要用大顶堆，但是定义一个大小为k的大顶堆，每次更新的时候都把最大值弹出了，无法保留前k个高频元素。因此考虑使用小顶堆。
+
+### 20220511 [42. Trapping Rain Water](https://leetcode.cn/problems/trapping-rain-water/)
+
+```c++
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        if (height.size() <= 2) return 0;
+        vector<int> maxLeft(height.size(), 0);
+        vector<int> maxRight(height.size(), 0);
+        int size = maxRight.size();
+        maxLeft[0] = height[0];
+        for (int i = 1; i < size; i ++) {
+            maxLeft[i] = max(height[i], maxLeft[i - 1]);
+        }
+        maxRight[size - 1] = height[size - 1];
+        for (int i = size - 2; i >= 0; i--) {
+            maxRight[i] = max(height[i], maxRight[i + 1]);
+        }
+        int sum = 0;
+        for (int i = 0; i < size; i++) {
+            int count = min(maxLeft[i], maxRight[i]) - height[i];
+            if (count > 0) sum += count;
+        }
+        return sum;
+    }
+};
+```
+
+![image-20220511073213899](coderandom.assets/image-20220511073213899.png)
