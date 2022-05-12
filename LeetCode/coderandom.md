@@ -1043,3 +1043,36 @@ public:
 那么他的左孩子是$i\times 2 + 1$,右孩子是$i\times 2+2$
 
 遍历：经常会用递归的方式来实现深度优先遍历，也就是实现前序、中序、后序遍历。广度优先遍历主要使用队列的结构实现。
+
+### 20220513 8.2 前中后序的递归遍历
+
+1. 确定递归函数的参数和返回值
+
+   `void traversal(TreeNode* cur, vector<int>& vec)`
+
+   前一个参数是树的当前节点，后一个参数是存放节点数据的数组。
+
+2. 确定终止条件
+
+   当遍历节点为空时，则直接返回。
+
+   `if (cur == NULL) return;`
+
+3. 确定单层递归的逻辑
+
+   ```c++
+   //前序
+   vec.push_back(cur->val);		//中
+   traversal(cur->left, vec);	//左
+   traversal(cur->right, vec);	//右
+   //中序
+   traversal(cur->left, vec);	//左
+   vec.push_back(cur->val);		//中
+   traversal(cur->right, vec);	//右
+   //后序
+   traversal(cur->left, vec);	//左
+   traversal(cur->right, vec);	//右
+   vec.push_back(cur->val);		//中
+   ```
+
+   
