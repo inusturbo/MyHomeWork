@@ -1155,3 +1155,93 @@ public:
 ```
 
 ![image-20220516071259749](coderandom.assets/image-20220516071259749.png)
+
+### 20220517 统一的迭代遍历
+
+中序
+
+```c++
+class Solution {
+public:
+    vector<int> inorderTraversal(TreeNode* root) {
+        vector<int> result;
+        stack<TreeNode*> st;
+        if (root != NULL) st.push(root);
+      	while (!st.empty()) {
+        	TreeNode* node = st.top();
+          if (node != NULL) {
+            st.pop();
+            if (node->right) st.push(node->right);
+            st.push(node);
+            st.push(NULL);
+            if (node->left) st.push(node->left);
+          } else {
+            st.pop();
+            node = st.top();
+            st.pop();
+            result.push_back(node->val);
+          }
+      	}
+      return result;
+    }
+};
+```
+
+前序
+
+```c++
+class Solution {
+public:
+    vector<int> preorderTraversal(TreeNode* root) {
+        vector<int> result;
+        stack<TreeNode*> st;
+        if (root != NULL) st.push(root);
+      	while (!st.empty()) {
+        	TreeNode* node = st.top();
+          if (node != NULL) {
+            st.pop();
+            if (node->right) st.push(node->right);
+            if (node->left) st.push(node->left);
+            st.push(node);
+            st.push(NULL);
+          } else {
+            st.pop();
+            node = st.top();
+            st.pop();
+            result.push_back(node->val);
+          }
+      	}
+      return result;
+    }
+};
+```
+
+中序
+
+```c++
+class Solution {
+public:
+    vector<int> postorderTraversal(TreeNode* root) {
+        vector<int> result;
+        stack<TreeNode*> st;
+        if (root != NULL) st.push(root);
+      	while (!st.empty()) {
+        	TreeNode* node = st.top();
+          if (node != NULL) {
+            st.pop();
+            st.push(node);
+            st.push(NULL);
+            if (node->right) st.push(node->right);
+            if (node->left) st.push(node->left);
+          } else {
+            st.pop();
+            node = st.top();
+            st.pop();
+            result.push_back(node->val);
+          }
+      	}
+      return result;
+    }
+};
+```
+
