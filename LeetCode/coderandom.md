@@ -1156,7 +1156,7 @@ public:
 
 ![image-20220516071259749](coderandom.assets/image-20220516071259749.png)
 
-### 20220517 统一的迭代遍历
+### 20220517 8.4 统一的迭代遍历
 
 中序
 
@@ -1244,4 +1244,60 @@ public:
     }
 };
 ```
+
+### 20220518 8.5 二叉树的层序遍历
+
+```c++
+class Solution {
+public:
+    vector<vector<int>> levelOrder(TreeNode* root) {
+        queue<TreeNode*> que;
+        if (root != NULL) que.push(root);
+        vector<vector<int>> result;
+        while (!que.empty()) {
+            int size = que.size();
+            vector<int> vec;
+            for (int i = 0; i < size; ++i) {
+                TreeNode* node = que.front();
+                que.pop();
+                vec.push_back(node->val);
+                if (node->left) que.push(node->left);
+                if (node->right) que.push(node->right);
+            }
+            result.push_back(vec);
+        }
+        return result;
+
+    }
+};
+```
+
+![image-20220518064819545](coderandom.assets/image-20220518064819545.png)
+
+层序遍历还是比较简单的，建立一个队列即可。
+
+### 20220519 8.6 [226. Invert Binary Tree](https://leetcode.cn/problems/invert-binary-tree/)
+
+```c++
+class Solution {
+public:
+    TreeNode* invertTree(TreeNode* root) {
+        if (root == NULL) return root;
+        stack<TreeNode*> st;
+        st.push(root);
+        while (!st.empty()) {
+            TreeNode* node = st.top();
+            st.pop();
+            swap(node->left, node->right);
+            if(node->right) st.push(node->right);
+            if(node->left) st.push(node->left);
+        }
+        return root;
+    }
+};
+```
+
+![image-20220519192947544](coderandom.assets/image-20220519192947544.png)
+
+倒转二叉树时，只需要把前序遍历或者后序遍历的中间节点的处理部分更换成`swap(node->left, node->right);`
 
