@@ -1301,3 +1301,56 @@ public:
 
 倒转二叉树时，只需要把前序遍历或者后序遍历的中间节点的处理部分更换成`swap(node->left, node->right);`
 
+### 20220520 8.7 [101. Symmetric Tree](https://leetcode.cn/problems/symmetric-tree/)
+
+```c++
+class Solution {
+public:
+    bool compare(TreeNode* left, TreeNode* right) {
+        if (left == NULL && right != NULL) return false;
+        else if (left != NULL && right == NULL) return false;
+        else if (left == NULL && right == NULL) return true;
+        else if (left->val != right->val) return false;
+        bool outside = compare(left->left, right->right);
+        bool inside = compare(left->right, right->left);
+        bool isSame = outside && inside;
+        return isSame;
+    }
+    bool isSymmetric(TreeNode* root) {
+        if (root == NULL) return true;
+        return compare(root->left, root->right);
+    }
+};
+```
+
+![image-20220520072724825](coderandom.assets/image-20220520072724825.png)
+
+这道题很有趣，需要后序遍历但是要注意判断是否相同要通过内层和外层综合判断。
+
+### 20220523 8.8 [104. Maximum Depth of Binary Tree](https://leetcode.cn/problems/maximum-depth-of-binary-tree/)
+
+```c++
+class Solution {
+public:
+    int getDepth(TreeNode* node) {
+        if (node == NULL) {
+            return 0;
+        }
+        int leftDepth = getDepth(node->left);
+        int rightDepth = getDepth(node->right);
+        int depth = 1 + max(leftDepth, rightDepth);
+        return depth;
+    }
+    int maxDepth(TreeNode* root) {
+        return getDepth(root);
+    }
+};
+```
+
+![image-20220523064638262](coderandom.assets/image-20220523064638262.png)
+
+使用递归法：
+
+1. 确定递归函数的参数和返回值：参数为传入二叉树的根节点，返回值为树的深度
+2. 确定终止条件：如果为空节点，则返回0
+3. 确定单层递归逻辑：先求左子树深度，再求右子树深度，最后取左右子树最大值+1.+1是因为算上当前中间节点。
