@@ -1354,3 +1354,32 @@ public:
 1. 确定递归函数的参数和返回值：参数为传入二叉树的根节点，返回值为树的深度
 2. 确定终止条件：如果为空节点，则返回0
 3. 确定单层递归逻辑：先求左子树深度，再求右子树深度，最后取左右子树最大值+1.+1是因为算上当前中间节点。
+
+### 20220524 8.9 [111. Minimum Depth of Binary Tree](https://leetcode.cn/problems/minimum-depth-of-binary-tree/)
+
+```c++
+class Solution {
+public:
+    int getDepth(TreeNode* node) {
+        if (node == NULL) return 0;
+        int leftDepth = getDepth(node->left);
+        int rightDepth = getDepth(node->right);
+        if (node->left == NULL && node->right != NULL) {
+            return 1 + rightDepth;
+        }
+        if (node->left != NULL && node->right == NULL) {
+            return 1 + leftDepth;
+        }
+        int result = 1 + min(leftDepth, rightDepth);
+        return result;
+    }
+    int minDepth(TreeNode* root) {
+        return getDepth(root);
+    }
+};
+```
+
+![image-20220524071851680](coderandom.assets/image-20220524071851680.png)
+
+这道题和昨天的题目比较类似。
+
