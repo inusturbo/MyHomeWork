@@ -1383,3 +1383,38 @@ public:
 
 这道题和昨天的题目比较类似。
 
+### 20220525 8.10 [110. Balanced Binary Tree](https://leetcode.cn/problems/balanced-binary-tree/)
+
+```c++
+class Solution {
+public:
+    int getDepth(TreeNode* node) {
+        if (node == NULL) {
+            return 0;
+        }
+        int leftDepth = getDepth(node->left);
+        if (leftDepth == -1) return -1;
+        int rightDepth = getDepth(node->right);
+        if (rightDepth == -1) return -1;
+        return abs(leftDepth - rightDepth) > 1 ? -1 : 1 + max(leftDepth, rightDepth);
+    }
+    bool isBalanced(TreeNode* root) {
+        return getDepth(root) == -1 ? false : true;
+    }
+};
+```
+
+![image-20220525065230677](coderandom.assets/image-20220525065230677.png)
+
+原理还是要求出二叉树的高度和最小深度来比较。
+
+1. 明确递归函数的参数和返回值
+
+   参数为传入的节点指针，返回值是传入节点为根节点的二叉树高度
+
+   如果左右子树的差值大于1，那就不是平衡二叉树的，直接返回-1
+
+2. 明确终止条件：递归的过程中遇到空节点即种植。返回零，表示该节点树的高度为0
+
+3. 明确单层递归逻辑：分别求出左右子树的高度，如果差值小于等于1，则返回二叉树的高度。否则返回-1.
+
