@@ -1457,3 +1457,34 @@ public:
 
 ![image-20220526065625041](coderandom.assets/image-20220526065625041.png)
 
+### 20220527 8.12 [112. Path Sum](https://leetcode.cn/problems/path-sum/)
+
+```c++
+class Solution {
+public:
+    bool traversal(TreeNode* cur, int count) {
+        if (!cur->left && !cur->right && count == 0) return true;
+        if (!cur->left && !cur->right) return false;
+        if (cur->left) {
+            count -= cur->left->val;
+            if (traversal(cur->left, count)) return true;
+            count += cur->left->val;
+        }
+        if (cur->right) {
+            count -= cur->right->val;
+            if (traversal(cur->right, count)) return true;
+            count += cur->right->val;
+        }
+        return false;
+    }
+    bool hasPathSum(TreeNode* root, int targetSum) {
+        if (root == NULL) return false;
+        return traversal(root, targetSum - root->val);
+
+    }
+};
+```
+
+![image-20220527065843148](coderandom.assets/image-20220527065843148.png)
+
+使用回溯递归法。
