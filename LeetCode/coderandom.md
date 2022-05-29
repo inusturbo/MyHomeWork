@@ -1488,3 +1488,52 @@ public:
 ![image-20220527065843148](coderandom.assets/image-20220527065843148.png)
 
 使用回溯递归法。
+
+### 20220530 8.13 [106. Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.cn/problems/construct-binary-tree-from-inorder-and-postorder-traversal/)
+
+```c++
+class Solution {
+public:
+    TreeNode* traversal (vector<int>& inorder, vector<int>& postorder) {
+        if (postorder.size() == 0) return NULL;
+        int rootValue = postorder[postorder.size() - 1];
+        TreeNode* root = new TreeNode(rootValue);
+        if (postorder.size() == 1) return root;
+
+        int delimiterIndex;
+        for (delimiterIndex = 0; delimiterIndex < inorder.size(); delimiterIndex++) {
+            if (inorder[delimiterIndex] == rootValue) break;
+        }
+        vector<int> leftInorder(inorder.begin(), inorder.begin() + delimiterIndex);
+        vector<int> rightInorder(inorder.begin() + delimiterIndex + 1, inorder.end());
+        postorder.resize(postorder.size() - 1);
+        vector<int> leftPostorder(postorder.begin(), postorder.begin() + leftInorder.size());
+        vector<int> rightPostorder(postorder.begin() + leftInorder.size(), postorder.end());
+        root->left = traversal(leftInorder, leftPostorder);
+        root->right = traversal(rightInorder, rightPostorder);
+        return root;
+    }
+    TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
+        if (inorder.size() == 0 || postorder.size() == 0) return NULL;
+        return traversal(inorder, postorder);
+    }
+};
+```
+
+![image-20220530070734489](coderandom.assets/image-20220530070734489.png)
+
+原理：以 后序数组的最后一个元素为切割点，先切割中序数组，再根据中序数组，反过来再切割后序数组。一层一层切，每次后序数组的最后一个元素就是节点元素。
+
+说到一层一层切，就想到了递归
+
+第一步：如果数组长度为0，则说明是空节点
+
+第二步：如果数组不为空，那么将后序数组的最后一个元素作为节点元素
+
+第三步：找到后序数组的最后一个元素在中序数组中的位置并将其作为切割点
+
+第四步：切割中序数组，切成中序左数组和中序右数组
+
+第五步：切割后序数组，切成后序左数组和后序右数组
+
+第六步：递归处理左区间和右区间
