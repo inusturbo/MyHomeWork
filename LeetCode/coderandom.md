@@ -1537,3 +1537,21 @@ public:
 第五步：切割后序数组，切成后序左数组和后序右数组
 
 第六步：递归处理左区间和右区间
+
+### 20220531 8.14 [617. Merge Two Binary Trees](https://leetcode.cn/problems/merge-two-binary-trees/)
+
+```c++
+class Solution {
+public:
+    TreeNode* mergeTrees(TreeNode* root1, TreeNode* root2) {
+        if (root1 == NULL) return root2;
+        if (root2 == NULL) return root1;
+        root1->val += root2->val;
+        root1->left = mergeTrees(root1->left, root2->left);
+        root1->right = mergeTrees(root1->right, root2->right);
+        return root1;
+    }
+};
+```
+
+![image-20220531064623565](coderandom.assets/image-20220531064623565.png)
