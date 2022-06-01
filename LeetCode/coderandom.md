@@ -1573,3 +1573,30 @@ public:
 ![image-20220601064656139](coderandom.assets/image-20220601064656139.png)
 
 第五行和第六行直接return了，因为如果不return就变成了遍历整个树了。
+
+### 20220602 8.16 [98. Validate Binary Search Tree](https://leetcode.cn/problems/validate-binary-search-tree/)
+
+```c++
+class Solution {
+public:
+    vector<int> vec;
+    void traversal(TreeNode* root) {
+        if (root == NULL) return;
+        traversal(root->left);
+        vec.push_back(root->val);
+        traversal(root->right);
+    }
+    bool isValidBST(TreeNode* root) {
+        vec.clear();
+        traversal(root);
+        for (int i = 1; i < vec.size(); i++) {
+            if (vec[i] <= vec[i-1]) {
+                return false;
+            }
+        }
+        return true;
+    }
+};
+```
+
+![image-20220602065357314](coderandom.assets/image-20220602065357314.png)
