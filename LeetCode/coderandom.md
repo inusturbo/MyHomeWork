@@ -1555,3 +1555,21 @@ public:
 ```
 
 ![image-20220531064623565](coderandom.assets/image-20220531064623565.png)
+
+### 20220601 8.15 [700. Search in a Binary Search Tree](https://leetcode.cn/problems/search-in-a-binary-search-tree/)
+
+```c++
+class Solution {
+public:
+    TreeNode* searchBST(TreeNode* root, int val) {
+        if (root == NULL || root->val == val) return root;
+        if (root->val > val) return searchBST(root->left, val);
+        if (root->val < val) return searchBST(root->right, val);
+        return NULL;
+    }
+};
+```
+
+![image-20220601064656139](coderandom.assets/image-20220601064656139.png)
+
+第五行和第六行直接return了，因为如果不return就变成了遍历整个树了。
