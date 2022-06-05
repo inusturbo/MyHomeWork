@@ -1600,3 +1600,74 @@ public:
 ```
 
 ![image-20220602065357314](coderandom.assets/image-20220602065357314.png)
+
+### 20220603 8.17 [530. Minimum Absolute Difference in BST](https://leetcode.cn/problems/minimum-absolute-difference-in-bst/)
+
+```c++
+class Solution {
+public:
+    vector<int> vec;
+    void traversal(TreeNode* root) {
+        if (root == NULL) return;
+        traversal(root->left);
+        vec.push_back(root->val);
+        traversal(root->right);
+    }
+    int getMinimumDifference(TreeNode* root) {
+        vec.clear();
+        traversal(root);
+        if (vec.size() < 2) return 0;
+        int result = INT_MAX;
+        for (int i = 1; i < vec.size(); i++) {
+            result = min(result, vec[i] - vec[i-1]);
+        }
+        return result;
+    }
+};
+```
+
+![image-20220603065656694](coderandom.assets/image-20220603065656694.png)
+
+### 20220606 8.18 [501. Find Mode in Binary Search Tree](https://leetcode.cn/problems/find-mode-in-binary-search-tree/)
+
+```c++
+class Solution {
+public:
+    int maxCount;
+    int count;
+    TreeNode* pre;
+    vector<int> result;
+    void searchBST(TreeNode* cur) {
+        if (cur == NULL) return;
+        searchBST(cur->left);
+        if(pre == NULL) {
+            count = 1;
+        } else if (pre->val == cur->val) {
+            count++;
+        } else {
+            count = 1;
+        }
+        pre = cur;
+        if (count == maxCount) {
+            result.push_back(cur->val);
+        }
+        if (count > maxCount) {
+            maxCount = count;
+            result.clear();
+            result.push_back(cur->val);
+        }
+        searchBST(cur->right);
+        return;
+    }
+    vector<int> findMode(TreeNode* root) {
+        count = 0;
+        maxCount = 0;
+        TreeNode* pre = NULL;
+        result.clear();
+        searchBST(root);
+        return result;
+    }
+};
+```
+
+![image-20220606080524069](coderandom.assets/image-20220606080524069.png)
