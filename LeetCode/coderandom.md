@@ -1671,3 +1671,49 @@ public:
 ```
 
 ![image-20220606080524069](coderandom.assets/image-20220606080524069.png)
+
+### 20220607 8.19 [236. Lowest Common Ancestor of a Binary Tree](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/)
+
+```c++
+class Solution {
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if (root == q || root == p || root == NULL) return root;
+        TreeNode* left = lowestCommonAncestor(root->left, p, q);
+        TreeNode* right = lowestCommonAncestor(root->right, p, q);
+        if (left != NULL && right != NULL) return root;
+        if (left == NULL && right != NULL) return right;
+        else if (left != NULL && right == NULL) return left;
+        else return NULL;
+    }
+};
+```
+
+![image-20220607064722799](coderandom.assets/image-20220607064722799.png)
+
+```c++
+class Solution {
+public:
+    TreeNode* traversal(TreeNode* cur, TreeNode* p, TreeNode* q) {
+        if (cur == NULL) return cur;
+        if (cur->val > p->val && cur->val > q->val) {
+            TreeNode* left = traversal(cur->left, p, q);
+            if (left != NULL) {
+                return left;
+            }
+        }
+        if (cur->val < p->val && cur->val < q->val) {
+            TreeNode* right = traversal(cur->right, p, q);
+            if (right != NULL) {
+                return right;
+            }
+        }
+        return cur;
+    }
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        return traversal(root, p, q); 
+    }
+};
+```
+
+![image-20220607065343469](coderandom.assets/image-20220607065343469.png)
