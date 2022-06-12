@@ -1803,3 +1803,25 @@ public:
 ```
 
 ![image-20220610065112210](coderandom.assets/image-20220610065112210.png)
+
+### 20220613 8.23 [108. Convert Sorted Array to Binary Search Tree](https://leetcode.cn/problems/convert-sorted-array-to-binary-search-tree/)
+
+```c++
+class Solution {
+public:
+    TreeNode* traversal(vector<int>& nums, int left, int right) {
+        if (left > right) return nullptr;
+        int mid = left +((right - left) / 2);
+        TreeNode* root = new TreeNode(nums[mid]);
+        root->left = traversal(nums, left, mid - 1);
+        root->right = traversal(nums, mid + 1, right);
+        return root;
+    }
+    TreeNode* sortedArrayToBST(vector<int>& nums) {
+        TreeNode* root = traversal(nums, 0, nums.size() - 1);
+        return root;
+    }
+};
+```
+
+![image-20220613065121345](coderandom.assets/image-20220613065121345.png)
