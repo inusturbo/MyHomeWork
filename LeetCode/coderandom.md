@@ -1825,3 +1825,31 @@ public:
 ```
 
 ![image-20220613065121345](coderandom.assets/image-20220613065121345.png)
+
+### 20220614 9.1 9.2 [77. Combinations](https://leetcode.cn/problems/combinations/)
+
+```c++
+class Solution {
+private:
+    vector<vector<int>> result;
+    vector<int> path;
+    void backtracking(int n, int k, int startIndex) {
+        if (path.size() == k) {
+            result.push_back(path);
+            return;
+        }
+        for (int i = startIndex; i <= n - (k - path.size()) + 1; i++) {
+            path.push_back(i);
+            backtracking(n, k, i + 1);
+            path.pop_back();
+        }
+    }
+public:
+    vector<vector<int>> combine(int n, int k) {
+        backtracking(n, k, 1);
+        return result;
+    }
+};
+```
+
+![image-20220614070256901](coderandom.assets/image-20220614070256901.png)
