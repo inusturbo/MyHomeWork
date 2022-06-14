@@ -1853,3 +1853,37 @@ public:
 ```
 
 ![image-20220614070256901](coderandom.assets/image-20220614070256901.png)
+
+### 20220615 9.3 [216. Combination Sum III](https://leetcode.cn/problems/combination-sum-iii/)
+
+```c++
+class Solution {
+private:
+    vector<vector<int>> result;
+    vector<int> path;
+    void backtracking(int targetSum, int k, int sum, int startIndex) {
+        if (path.size() == k) {
+            if (sum == targetSum) result.push_back(path);
+            return;
+        }
+        for (int i = startIndex; i <= 9; i++) {
+            sum += i;
+            path.push_back(i);
+            backtracking(targetSum, k, sum, i + 1);
+            sum -= i;
+            path.pop_back();
+        }
+    }
+public:
+    vector<vector<int>> combinationSum3(int k, int n) {
+        result.clear();
+        path.clear();
+        backtracking(n, k, 0, 1);
+        return result;
+    }
+};
+```
+
+![image-20220615065905043](coderandom.assets/image-20220615065905043.png)
+
+难度中等488收藏分享切换为中文接收动态反馈
