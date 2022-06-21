@@ -1,75 +1,179 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1}经常出现的提问｜全般的によくある質問｜General FAQs}{3}{section.1}%
+\contentsline {section}{\numberline {1}经常出现的提问｜全般的によくある質問｜General FAQs}{2}{section.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.1}为什么选择NAIST｜Why NAIST}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.1}为什么选择NAIST｜NAISTを選ぶ理由｜Why NAIST}{2}{subsection.1.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.1.1}中文}{3}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}中文}{2}{subsubsection.1.1.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.1.2}English}{3}{subsubsection.1.1.2}%
+\contentsline {subsubsection}{\numberline {1.1.2}日本語}{3}{subsubsection.1.1.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.2}为什么选择在日本学习｜Why Japan}{3}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.1.3}English}{3}{subsubsection.1.1.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.2}为什么选择在日本学习｜日本留学の魅力｜Why Japan}{3}{subsection.1.2}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {1.2.1}中文}{3}{subsubsection.1.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.2.2}English}{3}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.2}日本語}{3}{subsubsection.1.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.3}为什么选择这个研究室｜}{3}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.2.3}English}{3}{subsubsection.1.2.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.3}为什么选择这个研究室｜この研究室を選ぶ理由｜Why this lab}{3}{subsection.1.3}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {1.3.1}中文}{3}{subsubsection.1.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.3.2}English}{4}{subsubsection.1.3.2}%
+\contentsline {subsubsection}{\numberline {1.3.2}日本語}{4}{subsubsection.1.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.4}关于编程经历｜}{4}{subsection.1.4}%
+\contentsline {subsubsection}{\numberline {1.3.3}English}{4}{subsubsection.1.3.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.4}关于编程经历｜プログラミング体験について｜Programming experience}{4}{subsection.1.4}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {1.4.1}中文}{4}{subsubsection.1.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.4.2}English}{4}{subsubsection.1.4.2}%
+\contentsline {subsubsection}{\numberline {1.4.2}日本語}{5}{subsubsection.1.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.5}擅长的编程语言｜}{5}{subsection.1.5}%
+\contentsline {subsubsection}{\numberline {1.4.3}English}{5}{subsubsection.1.4.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.5}擅长的编程语言｜得意なプログラミング言語｜Expertise in programming languages}{5}{subsection.1.5}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {1.5.1}中文}{5}{subsubsection.1.5.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.6}你是电子商务毕业的，为什么想要学习信息科学｜}{5}{subsection.1.6}%
+\contentsline {subsubsection}{\numberline {1.5.2}日本語}{6}{subsubsection.1.5.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.6.1}中文}{5}{subsubsection.1.6.1}%
+\contentsline {subsubsection}{\numberline {1.5.3}English}{6}{subsubsection.1.5.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.6.2}English}{5}{subsubsection.1.6.2}%
+\contentsline {subsection}{\numberline {1.6}你是电子商务毕业的，为什么想要学习信息科学｜電子商取引学科を卒業されていますが、なぜ情報科学を学ぼうと思ったのでしょうか？｜You are an e-commerce graduate, why do you want to study information science}{6}{subsection.1.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.7}毕业后想要做什么工作｜修了後のキャリアをどう考えているのか}{6}{subsection.1.7}%
+\contentsline {subsubsection}{\numberline {1.6.1}中文}{6}{subsubsection.1.6.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.8}数学做出了多少？｜数学はどれぐらい出来た？}{6}{subsection.1.8}%
+\contentsline {subsubsection}{\numberline {1.6.2}日本語}{6}{subsubsection.1.6.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.8.1}中文}{6}{subsubsection.1.8.1}%
+\contentsline {subsubsection}{\numberline {1.6.3}English}{6}{subsubsection.1.6.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.8.2}日本語}{6}{subsubsection.1.8.2}%
+\contentsline {subsection}{\numberline {1.7}毕业后想要做什么工作｜修了後のキャリアをどう考えているのか｜How do you see your career after completion of the program?}{6}{subsection.1.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.8.3}English}{6}{subsubsection.1.8.3}%
+\contentsline {subsubsection}{\numberline {1.7.1}中文}{6}{subsubsection.1.7.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2}关于小论文的提问｜小論文に関する質問｜Questions about the Paper}{6}{section.2}%
+\contentsline {subsubsection}{\numberline {1.7.2}日本語}{7}{subsubsection.1.7.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}关于学过内容的提问｜修学内容に関する質問｜Questions about the content of the course of study}{7}{section.3}%
+\contentsline {subsubsection}{\numberline {1.7.3}English}{7}{subsubsection.1.7.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}关于毕业论文的提问｜卒論に関する質問｜Questions about your thesis}{7}{section.4}%
+\contentsline {subsection}{\numberline {1.8}数学做出了多少？｜数学はどれぐらい出来た？｜How well did you do in math?}{8}{subsection.1.8}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}关于信息学基础的提问｜情報基礎に関する質問｜Questions about Information Fundamentals}{7}{section.5}%
+\contentsline {subsubsection}{\numberline {1.8.1}中文}{8}{subsubsection.1.8.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6}向教授的提问｜教授への質問｜Questions to the Professor}{7}{section.6}%
+\contentsline {subsubsection}{\numberline {1.8.2}日本語}{8}{subsubsection.1.8.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1}有什么想要提问的吗｜}{7}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {1.8.3}English}{8}{subsubsection.1.8.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.1.1}中文}{7}{subsubsection.6.1.1}%
+\contentsline {section}{\numberline {2}关于小论文的提问｜小論文に関する質問｜Questions about the Paper}{8}{section.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7}其他｜その他｜Others}{7}{section.7}%
+\contentsline {subsection}{\numberline {2.1}用1分钟描述你过去的研究｜あなたのこれまでの研究内容を1分間で説明してください。｜Describe your past research in 1 minute}{8}{subsection.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.1}研究领域有名的会议和期刊有哪些？｜研究分野で有名な学会/論文誌は？｜What are the famous conferences and journals in the field of research?}{7}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}中文}{8}{subsubsection.2.1.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.1.1}中文｜日本語｜English}{7}{subsubsection.7.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}日本語}{8}{subsubsection.2.1.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8}致谢｜謝辞｜Acknowledgement}{8}{section.8}%
+\contentsline {subsubsection}{\numberline {2.1.3}English}{8}{subsubsection.2.1.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {8.0.1}中文}{8}{subsubsection.8.0.1}%
+\contentsline {subsection}{\numberline {2.2}用1分钟描述你未来想要进行的研究｜今後実施したい研究内容を1分間で説明してください。｜Describe in 1 minute the research you want to conduct in the future}{8}{subsection.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {8.0.2}日本語}{8}{subsubsection.8.0.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}中文}{8}{subsubsection.2.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {8.0.3}English}{8}{subsubsection.8.0.3}%
+\contentsline {subsubsection}{\numberline {2.2.2}日本語}{8}{subsubsection.2.2.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.2.3}English}{8}{subsubsection.2.2.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3}用1分钟描述你的小论文｜小論文を1分間で説明してください｜Describe your mini-essay in 1 minute}{8}{subsection.2.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.3.1}中文}{8}{subsubsection.2.3.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.3.2}日本語}{8}{subsubsection.2.3.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.3.3}English}{8}{subsubsection.2.3.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.4}想要研究的目的意义是什么？｜テーマの魅力について語って？｜What is the significance of the purpose of the study?}{8}{subsection.2.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.4.1}中文}{8}{subsubsection.2.4.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.4.2}日本語}{9}{subsubsection.2.4.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.4.3}English}{9}{subsubsection.2.4.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.5}什么启发了你这项研究？｜この研究に興味を持ったきっかけはなに？｜What sparked your interest in this research?？}{11}{subsection.2.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.5.1}中文}{11}{subsubsection.2.5.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.5.2}日本語}{11}{subsubsection.2.5.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.5.3}English}{11}{subsubsection.2.5.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.6}对这项研究的热情的源泉是什么？｜研究に対する熱意の源泉はなにか｜What is the source of your enthusiasm for research?}{11}{subsection.2.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.6.1}中文}{11}{subsubsection.2.6.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.6.2}日本語}{11}{subsubsection.2.6.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.6.3}English}{11}{subsubsection.2.6.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.7}这项研究不一定在NAIST做对吗？｜それはNAISTじゃなくてもできるよね？｜You don't have to be at NAIST to do that, right?}{11}{subsection.2.7}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.7.1}中文}{11}{subsubsection.2.7.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.7.2}日本語}{11}{subsubsection.2.7.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.7.3}English}{11}{subsubsection.2.7.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.8}已经有相关研究了不是吗？｜こんなのもうあるじゃん｜There already are something like this.}{11}{subsection.2.8}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.8.1}中文}{11}{subsubsection.2.8.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.8.2}日本語}{11}{subsubsection.2.8.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.8.3}English}{11}{subsubsection.2.8.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.9}这项研究的价值是什么？｜このテーマに価値はあるの？｜Is there any value in this theme?}{11}{subsection.2.9}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.9.1}中文}{11}{subsubsection.2.9.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.9.2}日本語}{11}{subsubsection.2.9.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.9.3}English}{11}{subsubsection.2.9.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.10}简述你的参考文献｜参考文献を簡単に説明する｜Briefly describe your references}{11}{subsection.2.10}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.10.1}中文}{11}{subsubsection.2.10.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.10.2}日本語}{11}{subsubsection.2.10.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.10.3}English}{11}{subsubsection.2.10.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3}关于学过内容的提问｜修学内容に関する質問｜Questions about the content of the course of study}{11}{section.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4}关于毕业论文的提问｜卒論に関する質問｜Questions about your thesis}{11}{section.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5}关于信息学基础的提问｜情報基礎に関する質問｜Questions about Information Fundamentals}{11}{section.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6}向教授的提问｜教授への質問｜Questions to the Professor}{11}{section.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.1}有什么想要提问的吗｜何か質問はありますか？｜Do you have any questions?}{11}{subsection.6.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {6.1.1}中文}{11}{subsubsection.6.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {6.1.2}日本語}{12}{subsubsection.6.1.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {6.1.3}English}{12}{subsubsection.6.1.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7}其他｜その他｜Others}{12}{section.7}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {7.1}研究领域有名的会议和期刊有哪些？｜研究分野で有名な学会/論文誌は？｜What are the famous conferences and journals in the field of research?}{12}{subsection.7.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {7.1.1}中文｜日本語｜English}{12}{subsubsection.7.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {8}致谢｜謝辞｜Acknowledgement}{12}{section.8}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {8.0.1}中文}{12}{subsubsection.8.0.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {8.0.2}日本語}{12}{subsubsection.8.0.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {8.0.3}English}{12}{subsubsection.8.0.3}%

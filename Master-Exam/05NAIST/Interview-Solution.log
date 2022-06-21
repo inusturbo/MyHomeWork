@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2022.1.13)  20 JUN 2022 07:32
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2022.1.13)  22 JUN 2022 08:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1127,43 +1127,28 @@ LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
 \tf@toc=\write6
 \openout6 = `Interview-Solution.toc'.
 
- [2]
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
 (Font)              scaled to size 12.0pt on input line 31.
- [3]
-Underfull \hbox (badness 10000) in paragraph at lines 77--84
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 85--92
+ [2] [3]
+Underfull \hbox (badness 10000) in paragraph at lines 93--99
 
  []
 
 [4]
-Missing character: There is no ・ (U+30FB) in font Songti SC Light/OT:language=d
-flt;!
-Missing character: There is no ○ (U+25CB) in font [texgyretermes-regular.otf]/O
-T:script=latn;language=dflt;mapping=tex-text;!
-Missing character: There is no ○ (U+25CB) in font [texgyretermes-regular.otf]/O
-T:script=latn;language=dflt;mapping=tex-text;!
-Missing character: There is no ・ (U+30FB) in font Songti SC Light/OT:language=d
-flt;!
- [5]
-Missing character: There is no ○ (U+25CB) in font [texgyretermes-regular.otf]/O
-T:script=latn;language=dflt;mapping=tex-text;!
-Missing character: There is no ○ (U+25CB) in font [texgyretermes-regular.otf]/O
-T:script=latn;language=dflt;mapping=tex-text;!
-Missing character: There is no ・ (U+30FB) in font Songti SC Light/OT:language=d
-flt;!
-Missing character: There is no ・ (U+30FB) in font Songti SC Light/OT:language=d
-flt;!
- [6] [7] [8] (./Interview-Solution.aux)
+Underfull \hbox (badness 10000) in paragraph at lines 107--113
+
+ []
+
+[5] [6] [7] [8] [9] [10]
+Overfull \vbox (312.10205pt too high) has occurred while \output is active []
+
+
+[11] [12] (./Interview-Solution.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `Interview-Solution.out' has not changed.
-(rerunfilecheck)             Checksum: A4AB2824567C9629930FE05F6B3BEE80;4780.
+(rerunfilecheck)             Checksum: A7BAC00FC58009BA625CDFF9E5DD0A27;12552.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                Interview-Solution
@@ -1174,12 +1159,12 @@ Package logreq Info: Writing requests to 'Interview-Solution.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 26375 strings out of 476919
- 522761 string characters out of 5821840
- 1355576 words of memory out of 5000000
- 45966 multiletter control sequences out of 15000+600000
+ 26387 strings out of 476919
+ 523485 string characters out of 5821840
+ 1356465 words of memory out of 5000000
+ 45978 multiletter control sequences out of 15000+600000
  410481 words of font info for 97 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 96i,6n,114p,763b,759s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 96i,6n,114p,1022b,759s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Interview-Solution.pdf (8 pages).
+Output written on Interview-Solution.pdf (12 pages).
