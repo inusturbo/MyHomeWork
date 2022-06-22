@@ -2095,3 +2095,31 @@ public:
 
 
 ![image-20220622070634519](coderandom.assets/image-20220622070634519.png)
+
+### 20220623 9.9 [78. Subsets](https://leetcode.cn/problems/subsets/)
+
+```c++
+class Solution {
+private:
+    vector<vector<int>> result;
+    vector<int> path;
+    void backtracking(vector<int>& nums, int startIndex) {
+        result.push_back(path);
+        if (startIndex >= nums.size()) return;
+        for (int i = startIndex; i < nums.size(); i++) {
+            path.push_back(nums[i]);
+            backtracking(nums, i + 1);
+            path.pop_back();
+        }
+    }
+public:
+    vector<vector<int>> subsets(vector<int>& nums) {
+        result.clear();
+        path.clear();
+        backtracking(nums, 0);
+        return result;
+    }
+};
+```
+
+![image-20220623050737658](coderandom.assets/image-20220623050737658.png)
