@@ -34,7 +34,7 @@
 \subsubsection{日本語}
 NAISTは科学的研究に重点を置いた学校ですから。 特にNAISTの学生は美術系など様々なバックグラウンドを持っているでしょうし、加藤先生の研究室にも美術系を卒業した学生がいるようですから、多分野のバックグラウンドがぶつかり合って、より多くの可能性が生まれるのではないでしょうか。
 \subsubsection{English}
-Because NAIST is a school that focuses on scientific research. In particular, NAIST students may have a variety of backgrounds, such as art backgrounds, and I saw that Professor Kato's Lab also has students who graduated with degrees in art, so I think the intersection of backgrounds may collide to create more possibilities.
+Because NAIST is the university that focuses on scientific research. In particular, NAIST students may have a variety of backgrounds, such as art backgrounds, and I saw that Professor Kato's Lab also has students who graduated with degrees in art, so I think the intersection of backgrounds may collide to create more possibilities.
 
 \subsection{为什么选择在日本学习｜日本留学の魅力｜Why Japan}
 \subsubsection{中文}
@@ -210,7 +210,7 @@ This research can make 3D objects in AR more realistic, and this is using civili
 
 \subsection{简述你的参考文献｜参考文献を簡単に説明する｜Briefly describe your references}
 \subsubsection{中文}
-1.论文提出了著名的SIFT特征描述子，并且利用图像金字塔实现了
+1.论文提出了著名的SIFT特征描述子，并且利用图像金字塔实现了尺度不变性。使用特征描述来获得旋转不变性。
 
 2. 由于计算机图像处理能力的提升，视觉SLAM领域逐渐受到重视，因此需要构建适配视觉SLAM的回环检测模块。最简单的方法当然是直接提取特征点和描述子进行几何匹配，然而当时主流的SIFT和SURF在特征提取上耗费的时间就已经不可接受，而描述子匹配更为耗时，因此远远达不到SLAM算法对实时性的要求。因此，当时的主流方案是基于图像外观相似度的匹配。在此情况下，这两篇文献提出了方案，可以主要被概括为以下几点：
 
@@ -234,7 +234,51 @@ SDF直接用深度相机输入监督；Color处理与NeRF一致。
 
 
 \subsubsection{日本語}
+1.本論文では、よく知られたSIFT特徴記述子を提示し、画像ピラミッドを用いてスケール不変性を実現する。 回転不変性は、特徴記述を使って得られる。
+
+2.コンピュータの画像処理能力の向上により、ビジュアルSLAMの分野が重要視される中、ビジュアルSLAMに適応したループバック検出モジュールの構築が求められています。 最も単純なアプローチは、もちろん特徴点と記述子を直接抽出して幾何学的マッチングを行うことであるが、当時主流のSIFTやSURFはすでに特徴抽出に許容できないほどの時間がかかり、記述子のマッチングはさらに時間がかかるため、SLAMアルゴリズムの実時間要件を満たすにはほど遠いものであった。 そのため、当時は画像の外観の類似性を利用したマッチングが主流でした。 そこで、この2つの論文では、主に以下のような方式が提案されている。
+
+FASTキーポイントとBRIEF記述子を用いた、当時としては最速の画像特徴抽出方式である
+
+局所的な特徴記述子を大域的な特徴記述子に集約するための階層的なBag-of-Wordsモデルの利用
+
+画像検索処理の高速化のために、逆引き・順引き方式を提案した
+
+ループバック検出判定アルゴリズムが提案されている 
+
+Bag-of-Wordsモデルに基づく効率的なビジュアルループバック検出アルゴリズムを提案し、実現可能な多くの工学的提案を行う。 これをもとに、DBoW3やFBoWなどのオープンソースライブラリを作成し、最適化を行っています。
+
+3.最初に提案された NeRF が行うタスクは Novel View Synthesis であり、既知の複数の視点でのシーンの一連の観測（カメラ内部および外部参照、画像、Pose など）を行い、任意の新しい視点での画像を合成するものであった。 従来の方法では、このタスクは通常3D再構成によって達成され、その後レンダリングされますが、NeRFは明示的な3D再構成プロセスなしに、内部および外部パラメータから直接新しいビューレンダリング画像を得たいと考えています。 そのため、NeRFでは、従来の点群、メッシュ、ボクセル、TSDFなどの代わりに、3Dシーンの暗黙の表現としてニューラルネットワークを用い、これを通じて、任意の角度、任意の位置からの投影画像を直接描画することができる。
+
+4.NeRFは、単純なMLPの重みがシーンの3次元構造を特徴づけることができるというアイデアを与えてくれたので、RGBD表面再構成の研究がその後行われています。
+
+粗い位置入力（ネットワークで最適化）、ネットワーク入力のxyzと方向角、予測されるSDF値、より細かい表面再構成のためのRGB。
+
+SDFは深度カメラの入力を直接監視し、色処理はNeRFと一致します。
+
 \subsubsection{English}
+1. The paper proposes the well-known SIFT feature descriptor and achieves scale invariance using image pyramids. Rotation invariance is obtained using feature descriptions.
+
+2. Due to the improvement of computer image processing power, the field of visual SLAM is gradually gaining attention, so there is a need to build loopback detection modules adapted to visual SLAM. The simplest method is of course to extract feature points and descriptors directly for geometric matching, however, the mainstream SIFT and SURF at that time already took unacceptable time for feature extraction, and descriptor matching was even more time-consuming, so it was far from meeting the real-time requirements of SLAM algorithms. Therefore, the dominant solution at that time was matching based on image appearance similarity. In this context, the two papers proposed schemes that can be mainly summarized as follows.
+
+Using FAST keypoints and BRIEF descriptors, this scheme was the fastest scheme to perform image feature extraction at that time
+
+Use of a hierarchical bag-of-words model to aggregate local feature descriptors into global feature descriptors
+
+Proposed a reverse indexing and forward indexing scheme for image retrieval process, which accelerated the retrieval speed
+
+A loopback detection determination algorithm is proposed 
+
+The literature proposes an efficient visual loopback detection algorithm based on the bag-of-words model and provides many feasible engineering suggestions. Subsequent open source libraries such as DBoW3 and FBoW are written and optimized based on this. 
+
+3. The first proposal of NeRF, the task done by NeRF is Novel View Synthesis, where a series of observations of the scene (camera internal and external parameters, image, Pose, etc.) are performed at several known viewpoints to synthesize an image at any new viewpoint. While traditional methods usually use 3D reconstruction and then rendering for this task, NeRF wants to obtain the rendered image directly from the new viewpoint without an explicit 3D reconstruction process, based only on the internal and external parameters. To achieve this, NeRF uses a neural network as an implicit representation of the 3D scene instead of the traditional point cloud, mesh, voxel, TSDF, etc., through which the network can directly render the projected image from any angle at any location.
+
+4. NeRF gives us an idea that the weights of a simple MLP can characterize the scene 3D structure, so there is subsequent work for RGBD surface reconstruction.
+
+Rough bit pose input (optimized with network), network input xyz and orientation angle, predicted SDF values and RGB for finer surface reconstruction.
+
+SDF is directly supervised with depth camera input; Color processing is consistent with NeRF.
+
 
 \subsection{NeRF的缺点是什么｜NeRFのデメリットは何ですか？｜What are the disadvantages of NeRF}
 \subsubsection{中文}
