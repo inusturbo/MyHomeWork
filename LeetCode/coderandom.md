@@ -2158,7 +2158,7 @@ public:
 
 ![image-20220624111407312](coderandom.assets/image-20220624111407312.png)
 
-### 20220627 [491. Increasing Subsequences](https://leetcode.cn/problems/increasing-subsequences/)
+### 20220627 9.11 [491. Increasing Subsequences](https://leetcode.cn/problems/increasing-subsequences/)
 
 ```c++
 class Solution {
@@ -2193,7 +2193,7 @@ public:
 
 ![image-20220627083613235](coderandom.assets/image-20220627083613235.png)
 
-### 20220628 9.2 [46. Permutations](https://leetcode.cn/problems/permutations/)
+### 20220628 9.12 [46. Permutations](https://leetcode.cn/problems/permutations/)
 
 ```c++
 class Solution {
@@ -2225,3 +2225,42 @@ public:
 ```
 
 ![image-20220628084255963](coderandom.assets/image-20220628084255963.png)
+
+### 20220629 9.13 [47. Permutations II](https://leetcode.cn/problems/permutations-ii/)
+
+```c++
+class Solution {
+private:
+    vector<vector<int>> result;
+    vector<int> path;
+    void backtracking (vector<int>& nums, vector<bool>& used) {
+        if (path.size() == nums.size()) {
+            result.push_back(path);
+            return;
+        }
+        for (int i = 0; i < nums.size(); i++) {
+            if (i > 0 && nums[i] == nums[i - 1] && used[i - 1] == false) {
+                continue;
+            }
+            if (used[i] == false) {
+                used[i] = true;
+                path.push_back(nums[i]);
+                backtracking(nums, used);
+                path.pop_back();
+                used[i] = false;
+            }
+        }
+    }
+public:
+    vector<vector<int>> permuteUnique(vector<int>& nums) {
+        result.clear();
+        path.clear();
+        sort(nums.begin(), nums.end());
+        vector<bool> used(nums.size(), false);
+        backtracking(nums, used);
+        return result;
+    }
+};
+```
+
+![image-20220629105227420](coderandom.assets/image-20220629105227420.png)
