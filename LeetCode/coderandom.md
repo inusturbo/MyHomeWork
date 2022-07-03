@@ -2265,7 +2265,7 @@ public:
 
 ![image-20220629105227420](coderandom.assets/image-20220629105227420.png)
 
-### 20220630 9.14[51. N-Queens](https://leetcode.cn/problems/n-queens/)
+### 20220630 9.14 [51. N-Queens](https://leetcode.cn/problems/n-queens/)
 
 ```c++
 class Solution {
@@ -2314,3 +2314,79 @@ public:
 ```
 
 ![image-20220630101004892](coderandom.assets/image-20220630101004892.png)
+
+### 20220701 9.15 [37. Sudoku Solver](https://leetcode.cn/problems/sudoku-solver/)
+
+```c++
+class Solution {
+private:
+    bool backtracking(vector<vector<char>>& board) {
+        for (int i = 0; i < board.size(); i++) {
+            for (int j = 0; j < board[0].size(); j++) {
+                if (board[i][j] != '.') continue;
+                for (char k = '1'; k <= '9'; k++) {
+                    if (isValid(i, j, k, board)) {
+                        board[i][j] = k;
+                        if (backtracking(board)) return true;
+                        board[i][j] = '.';
+                    }
+                }
+                return false;
+            }
+        }
+        return true;
+    }
+    bool isValid(int row, int col, char val, vector<vector<char>>& board) {
+        for (int i = 0; i < 9; i++) {
+            if (board[row][i] == val) {
+                return false;
+            }
+        }
+        for (int j = 0; j < 9; j++) {
+            if (board[j][col] == val) {
+                return false;
+            }
+        }
+        int startRow = (row / 3) * 3;
+        int startCol = (col / 3) * 3;
+        for (int i = startRow; i < startRow + 3; i++) {
+            for (int j = startCol; j < startCol + 3; j++) {
+                if (board[i][j] == val) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+public:
+    void solveSudoku(vector<vector<char>>& board) {
+        backtracking(board);
+    }
+};
+```
+
+![image-20220701091203662](coderandom.assets/image-20220701091203662.png)
+
+### 20220704 10.2 [455. Assign Cookies](https://leetcode.cn/problems/assign-cookies/)
+
+```c+++
+class Solution {
+public:
+    int findContentChildren(vector<int>& g, vector<int>& s) {
+        sort(g.begin(), g.end());
+        sort(s.begin(), s.end());
+        int index = s.size() - 1;
+        int result = 0;
+        for (int i = g.size() - 1; i >= 0; i--) {
+            if (index >= 0 && s[index] >= g[i]) {
+                result++;
+                index--;
+            }
+        }
+        return result;
+
+    }
+};
+```
+
+![image-20220704083633139](coderandom.assets/image-20220704083633139.png)
