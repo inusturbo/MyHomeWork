@@ -2414,3 +2414,22 @@ public:
 ```
 
 ![image-20220705082854839](coderandom.assets/image-20220705082854839.png)
+
+### 20220706 10.4 [53. Maximum Subarray](https://leetcode.cn/problems/maximum-subarray/)
+
+```c++
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        int curSum = nums[0];
+        int maxSum = nums[0];
+        for(int i = 1; i < nums.size(); ++i){
+            curSum = max(nums[i], curSum + nums[i]);
+            maxSum = max(curSum, maxSum);
+        }
+        return maxSum;
+    }
+};
+```
+
+![image-20220706065158059](coderandom.assets/image-20220706065158059.png)
