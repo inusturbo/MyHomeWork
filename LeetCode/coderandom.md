@@ -2433,3 +2433,62 @@ public:
 ```
 
 ![image-20220706065158059](coderandom.assets/image-20220706065158059.png)
+
+### 20220711 10.5 [122. Best Time to Buy and Sell Stock II](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/)
+
+```c++
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int result = 0;
+        for (int i = 1; i < prices.size(); i++) {
+            result += max(prices[i] - prices[i - 1], 0);
+        }
+        return result;
+    }
+};
+```
+
+![image-20220711064932984](coderandom.assets/image-20220711064932984.png)
+
+### 20220711 10.6 [55. Jump Game](https://leetcode.cn/problems/jump-game/)
+
+```c++
+class Solution {
+public:
+    bool canJump(vector<int>& nums) {
+        int cover = 0;
+        if (nums.size() == 1) return true;
+        for(int i = 0; i <= cover; i++) {
+            cover = max(i + nums[i], cover);
+            if (cover >= nums.size() - 1) return true;
+        }
+        return false;
+    }
+};
+```
+
+![image-20220711070141659](coderandom.assets/image-20220711070141659.png)
+
+### 20220711 10.7 [45. Jump Game II](https://leetcode.cn/problems/jump-game-ii/)
+
+```c++
+class Solution {
+public:
+    int jump(vector<int>& nums) {
+        int curDistance = 0;
+        int ans = 0;
+        int nextDistance = 0;
+        for (int i = 0; i <nums.size() - 1; i++) {
+            nextDistance = max(nums[i] + i, nextDistance);
+            if (i == curDistance) {
+                curDistance = nextDistance;
+                ans++;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+![image-20220711070614322](coderandom.assets/image-20220711070614322.png)
