@@ -2492,3 +2492,28 @@ public:
 ```
 
 ![image-20220711070614322](coderandom.assets/image-20220711070614322.png)
+
+### 20220712 10.8 [134. Gas Station](https://leetcode.cn/problems/gas-station/)
+
+```c++
+class Solution {
+public:
+    int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {
+        int curSum = 0;
+        int totalSum = 0;
+        int start = 0;
+        for (int i = 0; i < gas.size(); i++) {
+            curSum += gas[i] - cost[i];
+            totalSum += gas[i] - cost[i];
+            if (curSum < 0) {
+                start = i + 1;
+                curSum = 0;
+            }
+        }
+        if (totalSum < 0) return -1;
+        return start;
+    }
+};
+```
+
+![image-20220712065307172](coderandom.assets/image-20220712065307172.png)
