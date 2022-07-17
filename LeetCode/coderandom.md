@@ -2600,3 +2600,30 @@ public:
 ```
 
 ![image-20220715074236491](coderandom.assets/image-20220715074236491.png)
+
+### 20220718 10.12 [56. Merge Intervals](https://leetcode.cn/problems/merge-intervals/)
+
+```c++
+class Solution {
+public:
+    vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        vector<vector<int>> result;
+        if (intervals.size() == 0) return result;
+        sort(intervals.begin(), intervals.end(), [](const vector<int>& a, const vector<int>& b) {
+            return a[0] < b[0];
+        });
+
+        result.push_back(intervals[0]);
+        for (int i = 1; i < intervals.size(); i++) {
+            if (result.back()[1] >= intervals[i][0]) {
+                result.back()[1] = max(result.back()[1], intervals[i][1]);
+            } else {
+                result.push_back(intervals[i]);
+            }
+        }
+        return result;
+    }
+};
+```
+
+![image-20220718075833916](coderandom.assets/image-20220718075833916.png)

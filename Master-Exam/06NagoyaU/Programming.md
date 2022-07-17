@@ -287,6 +287,91 @@ int main() {
 
 ## 平成31年度入学試験　2018（平成30）年8月8日
 
+```c
+#include <stdlib.h>
+
+char* index(char* string, int p) {
+    char *tmp;
+    int i;
+    i = 1;
+    tmp = string;
+
+    while ((*tmp !='\0') && (i < p)) {
+        i++;
+        if ((*tmp & 0x80) == 0)
+            tmp++;
+        else
+            tmp += 3;
+    }
+    return tmp;
+}
+
+int length_b(char* string) {
+    int len;
+    len = 0;
+    while (string[len] != '\0')
+        len++;
+    return len;
+}
+
+char* concat(char* string1, char* string2) {
+    char *result, *tmp;
+    result = (char*) malloc(sizeof(char) * (length_b(string1) + length_b(string2) + 1));
+    tmp = result;
+    while (*string1 != '\0') {
+        *tmp = *string1;
+        tmp++;
+        string1++;
+    }
+    while (*string2 != '\0') {
+        *tmp = *string2;
+        tmp++;
+        string2++;
+    }
+    *tmp = '\0';
+    return result;
+}
+
+char* concat_p(char* string1, char* string2, char* l) {
+    char *result, *tmp1, *tmp2;
+    tmp1 = string1;
+    result = (char*) malloc(sizeof(char) * 100);
+    tmp2 = result;
+    while ((tmp1 != l) && (tmp1 !='\0')) {
+        *tmp2 = *tmp1;
+        tmp1++;
+        tmp2++;
+    }
+    *tmp2 = '\0';
+    return concat(result, string2);
+}
+
+char* replace(char* string1, char* string2, int p) {
+    char *tmp1, *tmp2;
+    tmp1 = index(string1, p);
+    tmp2 = concat_p(string1, string2, tmp1);
+    if ((*tmp2 & 0x80) == 0)
+        tmp2++;
+    else
+        tmp2 += 3;
+    return concat(tmp2, tmp1);
+}
+
+int main() {
+    char str1[4] = {0x41, 0x42, 0x43, '\0'};
+    char str2[10] = {0xE3, 0x81, 0x82, 0xE3, 0x81,0x84,0xE3,0x81,0x86, '\0'};
+    char str3[9] = {0xE3, 0x81, 0x82, 0x41,0xE3,0x81,0x84,0x42,'\0'};
+    char str4[4] = {0xE3, 0x81, 0x86, '\0'};
+    char *r;
+    r = index(str1, 1);
+    r = index(str2, 2);
+    r = index(str3, 3);
+    r = replace(str3, str4, 3);
+    r = str1;
+    return 0;
+}
+```
+
 
 
 解答：
@@ -322,3 +407,73 @@ int main() {
 
 
 （７）
+
+## 平成30年度入学試験　2017（平成20）年8月3日
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+struct cell {
+    int num;
+    struct cell *next;
+};
+
+typedef struct cell * CELL;
+CELL head = NULL;
+
+void insert(int i) {
+    CELL c = (CELL) malloc(sizeof(struct cell));
+    CELL tmp = head;
+    c->num = i; c->next = NULL;
+
+    if (head != NULL) {
+        while (tmp->next != NULL) tmp = tmp->next;
+        tmp->next = c;
+    } else {
+        head = c;
+    }
+}
+
+int top() {
+    if (head != NULL) {
+        return head->num;
+    } else {
+        return -1;
+    }
+}
+
+void eliminate() {
+    if (head != NULL) {
+        head = head->next;
+    }
+}
+
+void display() {
+    CELL tmp = head;
+    while (tmp != NULL) {
+        printf("%d;" ,tmp->num);
+        tmp = tmp->next;
+    }
+    printf("\n");
+}
+
+int main() {
+    insert(0); insert(4); insert(9); insert(3);
+    display();
+    printf("%d\n", top());
+    eliminate(); eliminate(); insert(7); insert(2);
+    display();
+    return 0;
+}
+```
+
+（１）
+
+```
+0;4;9;3;
+0
+9;3;7;2;
+```
+
+（２）(b)
