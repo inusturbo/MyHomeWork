@@ -2627,3 +2627,27 @@ public:
 ```
 
 ![image-20220718075833916](coderandom.assets/image-20220718075833916.png)
+
+### 20220719 10.13 [738. Monotone Increasing Digits](https://leetcode.cn/problems/monotone-increasing-digits/)
+
+```c++
+class Solution {
+public:
+    int monotoneIncreasingDigits(int n) {
+        string strNum = to_string(n);
+        int flag = strNum.size();
+        for (int i = strNum.size() - 1; i > 0; i--) {
+            if (strNum[i - 1] > strNum[i]) {
+                flag = i;
+                strNum[i - 1]--;
+            }
+        }
+        for (int i = flag; i < strNum.size(); i++) {
+            strNum[i] = '9';
+        }
+        return stoi(strNum);
+    }
+};
+```
+
+![image-20220719070458775](coderandom.assets/image-20220719070458775.png)
