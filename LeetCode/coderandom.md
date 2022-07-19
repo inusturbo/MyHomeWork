@@ -2651,3 +2651,17 @@ public:
 ```
 
 ![image-20220719070458775](coderandom.assets/image-20220719070458775.png)
+
+### 20220710 11.1 11.2 [509. Fibonacci Number](https://leetcode.cn/problems/fibonacci-number/)
+
+```c++
+class Solution {
+public:
+    int fib(int n) {
+        if (n < 2) return n;
+        return fib(n - 1) + fib(n - 2);
+    }
+};
+```
+
+![image-20220720074702641](coderandom.assets/image-20220720074702641.png)
