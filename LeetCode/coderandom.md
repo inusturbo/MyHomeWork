@@ -2665,3 +2665,26 @@ public:
 ```
 
 ![image-20220720074702641](coderandom.assets/image-20220720074702641.png)
+
+### 20220721 11.3 [70. Climbing Stairs](https://leetcode.cn/problems/climbing-stairs/)
+
+```c++
+class Solution {
+public:
+    int climbStairs(int n) {
+        if (n <= 1) return n;
+        int dp[3];
+        dp[1] = 1;
+        dp[2] = 2;
+        for (int i = 3; i <= n; i++) {
+            int sum = dp[1] + dp[2];
+            dp[1] = dp[2];
+            dp[2] = sum;
+        }
+        return dp[2];
+
+    }
+};
+```
+
+![image-20220721080309409](coderandom.assets/image-20220721080309409.png)
