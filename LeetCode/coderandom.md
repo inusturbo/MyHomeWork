@@ -2688,3 +2688,23 @@ public:
 ```
 
 ![image-20220721080309409](coderandom.assets/image-20220721080309409.png)
+
+### 20220722 11.4 [746. Min Cost Climbing Stairs](https://leetcode.cn/problems/min-cost-climbing-stairs/)
+
+```c++
+class Solution {
+public:
+    int minCostClimbingStairs(vector<int>& cost) {
+        int dp0 = cost[0];
+        int dp1 = cost[1];
+        for (int i = 2; i < cost.size(); i++) {
+            int dpi = min(dp0, dp1) + cost[i];
+            dp0 = dp1;
+            dp1 = dpi;
+        }
+        return min(dp0, dp1);
+    }
+};
+```
+
+![image-20220722073521876](coderandom.assets/image-20220722073521876.png)
