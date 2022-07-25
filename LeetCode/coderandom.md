@@ -2731,4 +2731,4 @@ public:
 };
 ```
 
-![image-20220726072952804](/Users/mashanpeng/Library/Application Support/typora-user-images/image-20220726072952804.png)
+![image-20220726072952804](/Users/mashanpeng/MyHomeWork/LeetCode/coderandom.assets/image-20220726072952804.png)
